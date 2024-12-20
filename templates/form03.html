@@ -1,0 +1,18 @@
+
+
+{% block work2 %}
+
+<form method="POST">
+    {% for x in rec %}
+  
+  <p>{{x.username}}</p>
+  <input type="text" name="nom" placeholder={{x.username}}>
+  {% endfor%}
+  
+  <input type="submit" value="save"  >
+  <br>
+  <input type="checkbox" value=("a", "b")>
+  
+</form>
+
+{% endblock work2 %}

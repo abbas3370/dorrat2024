@@ -1,0 +1,51 @@
+
+
+{% block work2 %}
+
+<form method="POST">
+  {% csrf_token  %}
+  <p> ادخال رموز المواد </p>
+  <br>
+  <br>
+  <br>
+  <input type="text" name="code">
+  <br>
+  <br>
+
+  <br>
+   <select name="nommatiere" >
+     <option value="math">math</option>
+     <option value="phy">phy</option>
+     <option value="chi">chi</option>
+    </select>
+  <br>
+  <br>
+  <br>
+
+  <br>
+  <select name="classe">
+    <option value="eb1">eb1</option>
+    <option value="eb2">eb2</option>
+    <option value="eb3">eb3</option>
+   </select>
+<br>
+<br>
+<br>
+
+<br>
+<select name="section">
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+ </select>
+
+ <br>
+ <br>
+ <br>
+
+  <input type="submit" value="save"  >
+  <br>
+  </form>
+  
+
+{% endblock work2 %}

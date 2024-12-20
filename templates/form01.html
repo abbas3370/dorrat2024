@@ -1,0 +1,15 @@
+
+
+{% block work2 %}
+
+<form method="POST">
+  {% csrf_token  %}
+  {{lf}}
+  
+  <input type="submit" value="save"  >
+  <br>
+  <input type="checkbox">
+  
+</form>
+
+{% endblock work2 %}
