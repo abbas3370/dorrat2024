@@ -1,0 +1,69 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دخول المعلمين  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+  </style>
+   
+
+  <script type="text/javascript">
+    function preventBack() {
+        window.history.forward(); 
+    }
+    
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+  </script>
+  
+
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ 
+     <br>
+     <h3>ادخل كود المعلم:</h3>
+     <input type="password" name="x001" value={{xwnn}}>
+     <input type="submit" value="أدخل">
+</fom>
+     <br>
+  
+<br>
+<form method="POST">
+  {% csrf_token  %}
+  <div class='editLink'>
+
+
+<br>
+<br>
+
+<td><a href="{% url 'bord'%}" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+</form>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

@@ -1,0 +1,115 @@
+  {% block work1 %}
+    
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href ="css/main.css">
+<link rel="stylesheet" href ="css/lightbox.min.css">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+.c1{
+  background-color: antiquewhite;
+  width: 50%;
+  float:left;
+
+}
+.c2{
+  background-color: antiquewhite;
+  width: 50%;
+  float:right;
+
+}
+.cc1{
+  background-color: antiquewhite;
+  width: 50%;
+  float:left;
+
+}
+.cc2{
+  background-color: antiquewhite;
+  width: 50%;
+  float:right;
+
+}
+.ccc1{
+  background-color: antiquewhite;
+  width: 50%;
+  float:left;
+
+}
+.ccc2{
+  background-color: antiquewhite;
+  width: 50%;
+  float:right;
+
+}
+.cccc1{
+  background-color: antiquewhite;
+  width: 50%;
+  float:left;
+
+}
+.cccc2{
+  background-color: antiquewhite;
+  width: 50%;
+  float:right;
+
+}
+
+
+div.scroll-container img {
+  padding: 10px;
+  height: 100%;
+}
+</style>
+</head>
+<body>
+    
+
+<h2>Image Gallery With Horizontal Scroll</h2>
+<p>Use the horizontal scrollbar to see the other images.</p>
+{% load static %}
+<div>
+  <div class="c1">
+  <img src="{% static 'image/1.jpg' %}" alt="Cinque Terre" width="700" height="400">
+  </div>
+  <div class="c2">
+  <img src="{% static 'image/2.jpg' %}" alt="Forest" width="700" height="400">
+  </div>
+  </div>
+  <div class="cc1">
+  <img src="{% static 'image/3.jpg' %}" alt="Northern Lights" width="700" height="400">
+  </div>
+  <div class="cc2">
+  <img src="{% static 'image/4.jpg' %}" alt="Mountains" width="700" height="400">
+  </div>
+  <div class="ccc1">
+  <img src="{% static 'image/5.jpg' %}"alt="Mountains" width="700" height="400">
+  </div>
+  <div class=ccc2"">
+  <img src="{% static 'image/6.jpg' %}" alt="Mountains" width="700" height="400">
+  </div>
+  <div class="cccc1">
+  <img src="{% static 'image/7.jpg' %}" alt="Mountains" width="700" height="400">
+  </div>
+  <div class="cccc2">
+  <img src="{% static 'image/8.jpg' %}" alt="Mountains" width="700" height="400">
+  </div>
+  
+
+<p>Note that the images are of same size.</p>
+
+
+ <script src="/specialabbas/abbas-mahmoud/projet3/js/lightbox-plus-jquery.min.js"></script>
+ 
+</body>
+</html>
+{% endblock work1 %}  

@@ -1,0 +1,209 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  ادخال العلامات من قبل معلم المادة  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+   .c1 td {
+     background-color:greenyellow;
+   }
+   #asa{
+        
+    background-color: silver;
+   }
+      
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+
+
+{% block work2 %}
+<form method="POST"  >
+  {% csrf_token  %}
+  <table border="1" style="background-color: silver";>
+  <td> كلمة مرور المعلم
+  <input type="password" name="passw" value={{psw}} ></td>
+  <td>
+   رمـــز المادة
+  <input type="password" name="codematie" value={{rec}} ></td>
+ 
+        <td>
+         الشهر 
+    
+    
+    
+    <select type= "text" name="month"  >
+      {% if lss == 'sem1' %}
+      <option value="{{month001}}" >سعي أول </option> 
+      {% endif %}
+      {% if lss == 'exa1' %}
+      <option value="{{month001}}" >امتحان أول </option> 
+      {% endif %} {% if lss == 'sem2' %}
+      <option value="{{month001}}" > سعي ثاني</option> 
+      {% endif %} {% if lss == 'exa2' %}
+      <option value="{{month001}}" >امتحان ثاني</option> 
+      {% endif %} 
+      <option value="sem1" > سعي أول </option> 
+      <option value="exa1" > امتحان أول </option> 
+      <option value="sem2" >سعي ثاني</option> 
+      <option value="exa2" > امتحان ثاني </option> 
+            
+     </select>
+    
+    </td>
+    <td>
+    <input type="submit" value=" ادخال علامات الطلاب "></td>
+    <td><a href="/app1/directmaitre" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>  </table>
+  </form>  
+  <br>
+  
+
+  <table border="1" style="background-color: white";>
+  <div id="asa" classe="c1" >
+  <td style="background-color:yellow"; >العام</td>
+    <td style="background-color:yellow";>الاسم</td>
+  <td style="background-color:yellow";>الاب</td>
+  <td style="background-color:yellow";>الشهرة</td>
+  <td style="background-color:yellow";>الصف </td>
+  <td style="background-color:yellow";>الشعبة</td>
+  <td style="background-color:yellow";>الشهر</td>
+  <td style="background-color:yellow";>العلامة القصوى</td>
+  <td style="background-color:yellow";>علامة الطالب/{{nomat}}</td>
+  <td style="background-color:white";>{{passw}} </td>
+  </div> 
+  {% for rec1 in reco %}
+  <form method="POST" action ="/app1/eleve1notemaitre/updatenotemaitre/{{rec1.id}}/{{nomat}}/{{psw}}/{{rec}}/{{month001}}">
+    {% csrf_token  %}
+
+      
+      
+      
+   <tr>
+    <td>{{rec1.anne1}}</td>
+    <td>{{rec1.nom1}}</td>
+    <td>{{rec1.pere1}}</td>
+    <td>{{rec1.famille1}}</td>
+    <td>{{rec1.classe1}}</td>
+    <td>{{rec1.section1}}</td>
+    <td>{{rec1.mois}}</td>
+    <td>{{scorem}}</td>
+    {% if nomat == 'math' %}
+      <td><input type="decimal"  id ="rt"  name="notexxl" value={{rec1.math}} ></td>
+       {{x}}
+      {% endif %}
+    {% if nomat == 'physique' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.physique}} ></td>
+    {% endif %}
+    {% if nomat == 'chimie' %}
+       <td><input type="decimal" name="notexxl" value={{rec1.chimie}} ></td>
+    {% endif %}
+    {% if nomat == 'bio' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.bio}} ></td>
+    {% endif %}
+    {% if nomat == 'arab1' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.arab1}} ></td>
+    {% endif %}
+    {% if nomat == 'arab2' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.arab2}} ></td>
+    {% endif %}
+    {% if nomat == 'arab3' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.arab3}} ></td>
+    {% endif %}
+    {% if nomat == 'francais1' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.francais1}} ></td>
+    {% endif %}
+    {% if nomat == 'francais2' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.francais2}} ></td>
+    {% endif %}
+    {% if nomat == 'francais3' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.francais3}} ></td>
+    {% endif %}
+    {% if nomat == 'eng' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.eng}} ></td>
+    {% endif %}
+    {% if nomat == 'civisme' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.civisme}} ></td>
+    {% endif %}
+    {% if nomat == 'historique' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.historique}} ></td>
+    {% endif %}
+    {% if nomat == 'geographie' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.geographie}} ></td>
+    {% endif %}
+    {% if nomat == 'economie' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.economie}} ></td>
+    {% endif %}
+    {% if nomat == 'socialite' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.socialite}} ></td>
+    {% endif %}
+    {% if nomat == 'philosophie' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.philosophie}} ></td>
+    {% endif %}
+    {% if nomat == 'informatique' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.informatique}} ></td>
+    {% endif %}
+    {% if nomat == 'art' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.art}} ></td>
+    {% endif %}
+    {% if nomat == 'religieu' %}
+      <td><input type="decimal" name="notexxl" value={{rec1.religieu}} ></td>
+    {% endif %}
+    {% if nomat == 'sport' %}
+     <td><input type="decimal" name="notexxl" value={{rec1.sport}} ></td>
+    {% endif %}
+    
+  
+
+
+    <td style="background-color:gray";> <input type="submit"  value="  حفظ الصف و الشعبة  "></td>
+    
+ 
+   </tr>
+    </form>
+      {% endfor %}
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<br>
+<br>
+
+<td><a href="/app1/directmaitre" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

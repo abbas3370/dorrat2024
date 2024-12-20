@@ -1,0 +1,339 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ادخال العلامات من قبل الادارة  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+   #asas td {
+     background-color:greenyellow;
+     width=20px;
+     height=10px;
+    }
+   #asa{
+        
+    background-color: silver;
+   }
+  label {
+    background-color: silver;
+    color:blue;
+  }      
+  #swe {
+    width=50;
+  }
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+
+
+{% block work2 %}
+
+<form method="POST"  >
+  {% csrf_token  %}
+   
+  <table border="2" background-color:white;>
+    <td>
+   <label> : الصـــف 
+     <input name="classe2002" disabled= "True" value={{root1}}>
+    </label>
+  </td>
+ <td>   
+  <label>
+     الشـــعبة 
+  <input name="section2002" disabled= "True" value={{root2}}>
+    
+</label>
+</td>
+
+<td><label>العام الدراسي
+  <input type="text" name="anne2002" disabled= "True" value={{root3}}>
+    
+  
+    </label>
+
+  </td>    
+<td>
+<label>
+     الشهر 
+    <input type= "text" name="month" disabled= "True" value={{root4}} >
+      
+    </label>
+  </td>
+ <td><label>  ادخال علامات الطلاب      <input type= "submit"  disabled= "True"  ></label>
+ </td>
+     
+    
+</table>
+  </form>  
+  <a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a>
+  
+<br>
+
+  <table border="3" style="background-color: white";>
+  <div id="asa" classe="c1" >
+  <td rowspan="2" style="background-color:yellow";>الاسم</td>
+  <td  rowspan="2" style="background-color:yellow";>الاب</td>
+  <td  rowspan="2" style="background-color:yellow";>الشهرة</td>
+  {% if ascmat != 0 %}
+  <td style="background-color:yellow";>math/{{ascmat}}</td>
+  {% endif %}
+  {% if ascphy != 0 %}
+
+  <td style="background-color:yellow";>phys/{{ascphy}}</td>
+  {% endif %}
+  {% if ascchi != 0 %}
+    
+  <td style="background-color:yellow";>chimie/{{ascchi}}</td>
+  {% endif %}
+  {% if  ascbio != 0 %}
+      
+  <td style="background-color:yellow";>bio/{{ascbio}}</td>
+  {% endif %}
+  {% if  ascara1 != 0 %}
+      
+  <td style="background-color:yellow";>تواصل كتابي/{{ascara1}}</td>
+  {% endif %}
+  {% if  ascara2 != 0 %}
+      
+  <td style="background-color:yellow";>تواصل شفهي/{{ascara2}}</td>
+  {% endif %}
+  {% if  ascara2 != 0 %}
+      
+  <td style="background-color:yellow";>القواعد والاملاء/{{ascara3}}</td>
+  {% endif %}
+  {% if  ascfra1 != 0 %}
+      
+  <td style="background-color:yellow";>orale/{{ascfra1}}</td>
+  {% endif %}
+  {% if ascfra2 != 0 %}
+      
+  <td style="background-color:yellow";>ecrite/{{ascfra2}}</td>
+  {% endif %}
+  {% if ascfra3 != 0 %}
+      
+  <td style="background-color:yellow";>g+dicte/{{ascfra3}}</td>
+  {% endif %}
+  {% if  asceng != 0 %}
+  <td style="background-color:yellow";>eng/{{asceng}}</td>
+  <tr>
+  {% endif %}
+
+
+  {% if  ascphi != 0 %}
+      
+  <td style="background-color:yellow";>فلسفة/{{ascphi}}</td>
+  {% endif %}
+  {% if  asceco != 0 %}
+      
+  <td style="background-color:yellow";>اقتصاد/{{asceco}}</td>orale
+  {% endif %}
+  {% if  ascsoc != 0 %}
+
+  <td style="background-color:yellow";>اجتماع/{{ascsoc}}</td>
+  {% endif %}
+  {% if  aschis != 0 %}
+      
+  <td style="background-color:yellow";>تاريخ/{{aschis}}</td>
+  {% endif %}
+  {% if  ascgeo != 0 %}
+      
+  <td style="background-color:yellow";>جغرافيا/{{ascgeo}}</td>
+
+  {% endif %}
+
+  {% if  ascciv != 0 %}
+      
+  <td style="background-color:yellow";>تنشئة/{{ascciv}}</td>
+  {% endif %}
+  {% if  ascart != 0 %}
+      
+  <td style="background-color:yellow";>فنون/{{ascart}}</td>
+  {% endif %}
+  {% if  ascrel != 0 %}
+      
+  <td style="background-color:yellow";>تربية دينية/{{ascrel}}</td>
+  {% endif %}
+  {% if  ascinf != 0 %}
+            
+  <td style="background-color:yellow";>كمبيوتر/{{ascinf}}</td>
+  {% endif %}
+  
+  {% if  ascspo != 0 %}
+            
+  <td style="background-color:yellow";> رياضة/{{ascspo}}</td>
+  {% endif %}
+  
+
+  <td> المجموع العام/{{somt}} </td>
+  <td> المجموع/20 </td>
+  <td> النتيجة </td>
+  <td  > </td>
+
+
+  {% for rec1 in reco %}
+  <form method="POST" action ="/app1/eleve1notedirect/updatenotedirect/{{somt}}/{{rec1.id}}/{{rec1.code1}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.mois}}">
+    {% csrf_token  %}
+
+      
+      
+      
+   <tr>
+    <td rowspan="2">{{rec1.nom1}}<br>{{rec1.classe1}}</td>
+    <td rowspan="2">{{rec1.pere1}}<br>{{rec1.section1}}</td>
+    <td rowspan="2">{{rec1.famille1}}<br>{{rec1.anne1}}</td>
+    {% if ascmat != 0 %}
+    <td><label> math/{{ascmat}}<input type="decimal" name="math1" width="5" height="10" maxlength=7 value={{rec1.math}} size=3 ></label></td>
+    {% endif %}
+    {% if  ascphy != 0 %}
+  
+    <td><label> phys/{{ascphy}}<input type="decimal" name="physique1" maxlength=7 value={{rec1.physique}}  size=3></label></td>
+    {% endif %}
+    {% if  ascchi != 0 %}
+  
+    <td><label> chimie/{{ascchi}}<input type="decimal" name="chimie1" width="10" height="10" maxlength=7 value={{rec1.chimie}} size=3 ></label></td>
+    {% endif %}
+    {% if  ascbio != 0 %}
+  
+    <td><label> bio/{{ascbio}}<input type="decimal" name="bio1" maxlength=7 value={{rec1.bio}} size=3></label></td>
+    {% endif %}
+    {% if  ascara1 != 0 %}
+  
+    <td><label>  شفهي/{{ascara1}}<input type="decimal" name="arab11" maxlength=7 value={{rec1.arab1}} size=3></label></td>
+    {% endif %}
+    {% if  ascara2 != 0 %}
+
+    <td><label>  كتابي/{{ascara2}}<input type="decimal" name="arab21" maxlength=7 value={{rec1.arab2}} size=3></label></td>
+    {% endif %}
+    {% if  ascara3 != 0 %}
+
+    <td><label> ق-املاء/{{ascara3}}<input type="decimal" name="arab31" maxlength=7 value={{rec1.arab3}} size=3></label></td>
+    {% endif %}
+    {% if  ascfra1 != 0 %}
+      
+    <td><label> orale/{{ascfra1}}<input type="decimal" name="francais11"  maxlength=7 value={{rec1.francais1}} size=3></label></td>
+    {% endif %}
+  {% if  ascfra2 != 0 %}
+  
+    <td><label> ecrite/{{ascfra2}}<input type="decimal" name="francais21" maxlength=7 value={{rec1.francais2}} size=3></label></td>
+    {% endif %}
+    {% if  ascfra3 != 0 %}
+    
+    <td><label> g+dicte/{{ascfra3}}<input type="decimal" name="francais31" maxlength=7 value={{rec1.francais3}} size=3 ></label></td>
+    {% endif %}
+
+
+    {% if  asceng != 0 %}
+    
+    <td><label> eng/{{asceng}}<input type="decimal" name="english1" maxlength=7 value={{rec1.eng}} size=3 ></label></td>
+    <tr>
+    {% endif %}
+
+
+
+    {% if  ascphi != 0 %}
+    
+    
+
+
+    <td><label> فلسفة/{{ascphi}}<input type="decimal" name="philosophie1" maxlength=7 value={{rec1.philosophie}} size=3 ></label></td>
+    {% endif %}
+    {% if  asceco != 0 %}
+    
+    <td><label> اقتصاد/{{asceco}}<input type="decimal" name="economie1"  maxlength=7 value={{rec1.economie}} size=3></label></td>
+    {% endif %}
+    {% if  ascsoc != 0 %}
+  
+    <td><label> اجتماع/{{ascsoc}}<input type="decimal" name="socialite1" maxlength=7 value={{rec1.socialite}} size=3></label></td>
+    {% endif %}
+    {% if  aschis != 0 %}
+    
+    <td><label> تاريخ/{{aschis}}<input type="decimal" name="historique1" maxlength=7 value={{rec1.historique}} size=3></label></td>
+    {% endif %}
+    {% if  ascgeo != 0 %}
+    
+    <td><label> جغرافيا/{{ascgeo}}<input type="decimal" name="geographie1" maxlength=7 value={{rec1.geographie}} size=3></label></td>
+    {% endif %}
+    {% if  ascciv != 0 %}
+    
+    <td><label>تنشئة/{{ascciv}}<input type="decimal" name="civisme1" maxlength=7 value={{rec1.civisme}} size=3></label></td>
+    {% endif %}
+    {% if  ascart != 0 %}
+    
+    <td><label> فنون/{{ascart}}<input type="decimal" name="art1" maxlength=7 value={{rec1.art}} size=3></label></td>
+    {% endif %}
+    {% if  ascrel != 0 %}
+    
+    <td><label>تربيةدينية/{{ascrel}}<input type="decimal" name="religieu1" maxlength=7 value={{rec1.religieu}} size=3></label></td>
+    {% endif %}
+    {% if  ascinf != 0 %}
+    
+    <td><label> كمبيوتر/{{ascinf}}<input type="decimal" name="informatique1" maxlength=7 value={{rec1.informatique}} size=3></label></td>
+    {% endif %}
+
+    {% if  ascspo != 0 %}
+    
+    <td><label> رياضة/{{ascspo}}<input type="decimal" name="sport1" maxlength=7 value={{rec1.sport}} size=3></label></td>
+    {% endif %}
+
+    <td> {{rec1.som1}} </td>
+    <td> {{rec1.som2}} </td>
+    {% if rec1.som2 >= 10 %}
+     <td> ناجح</td>
+     {% endif %}
+     {% if rec1.som2 < 10 %}
+     <td> راسب</td>
+     {% endif %}
+     
+    <td style="background-color:gray";> <input type="submit"  value="  حفظ العلامات  "></td>
+    
+  </div>    
+  <tr>
+ <td colspan="16" style="background-color:gray";><td>
+   </tr>
+    </form>
+      {% endfor %}
+    </table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<br>
+<br>
+
+<a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a>
+</div>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

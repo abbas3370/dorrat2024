@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+  
+{% extends 'base01.html' %}
+{% block work2 %}
+
+ <form  action ="updaterecordanne/{{menber.ida}}" method="POST">
+  {% csrf_token  %}
+  <p> تعديل </p>
+  <p>  الرقم</p>
+  <input type="text" name="ida1"  disabled value= "{{menber.ida}}" label="الكود">
+ 
+  <p> العام الدراسي</p>
+  <input type="text" name="anne" value="{{menber.anne}}">
+  <br>
+  
+  <br>
+
+  <input type="submit" value="save"  >
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/direct/list-anne" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  <br>
+  <br>
+  
+  <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>  
+{% endblock work2 %}
+
+
+</body>
+</html>

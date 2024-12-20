@@ -1,0 +1,109 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> عرض الصور   </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+     
+
+    </style>
+   
+
+  <script type="text/javascript">
+    function preventBack() {
+        window.history.forward(); 
+    }
+    
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+  </script>
+  
+
+
+</head>
+
+{% extends 'base01.html' %}
+  {% load static %}
+
+  
+{% block work2 %}
+
+
+
+
+
+
+
+<body>
+  
+<form method="POST">
+  {% csrf_token  %}
+ 
+
+     <br>
+    
+<table border="2" style="background-color:lightblue";>
+  <td colspan="5"> بحث حسب الشهر والسنة</td><tr>
+      <td>الشهر:<input type="text" name="monthi" ></td>
+  <td>السنة:<input type="text" name="annei" ></td>
+  <td><input type="submit" value="ابحث"></td>
+  <td>
+  <a href="{% url 'bord'%}" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a>
+  </td>
+</table><br>
+<form method="POST">
+  {% csrf_token  %}
+ <script> var x=0 </script>
+  <table border="1" style="background-color:lightblue">
+  {% for rec1 in rec %}
+  
+  <div class="qq">  
+    <script> x=x+1 </script>
+    <td><img src="{{rec1.image.url}}"  alt="Image preview..." width="400" height="400"/><br>
+     {{rec1.dat}}
+     {{rec1.rem1}}
+     {{rec1.rem2}}</td>
+  </div>
+    
+  <script> if((x % 3) == 0) {document.write('<tr>')} 
+  </script>
+  {% endfor %}  
+</table>
+<br>
+<br>
+
+
+</form>
+
+<p>  </p>
+<div class='editLink'>
+
+
+<p>
+  
+</p>
+<br>
+<br>
+
+<td><a href="{% url 'bord'%}" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+</form>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

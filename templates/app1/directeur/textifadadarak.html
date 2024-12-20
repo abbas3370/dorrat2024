@@ -1,0 +1,238 @@
+<html dir="rtl",lang="en">
+<head>  
+  
+</head>
+
+
+
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    table ,td{
+       border:1px solid  black;
+       border-collapse: collapse;
+    }
+
+.#brd , td ,th { border: none; bordercolor=white;}    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+
+ input {
+ 
+  border: none;
+  outline:none;
+ }
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+
+<body>
+  <script>
+    var zx =1;
+  </script>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<h4 align="center"> الملحق رقم-4-  </h4>
+<h4 align="center"> المعدل بموجب م.خ. رقم 275/204ش4تاريخ 26/9/2007</h4>
+<h4 align="center"> -لمن يهمه الامر-</h4>
+
+    {% for sco in scho %}
+<a> انا الموقع ادناه(1)  &nbsp &nbsp&nbsp {{sco.directeur}}</a><a></a>&nbsp &nbsp&nbsp &nbsp&nbsp
+&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp
+ &nbsp &nbsp &nbsp &nbsp <a> المسؤول عن ادارة (2) &nbsp &nbsp&nbsp{{sco.name}}</a>
+<br>
+<a>&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp 
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+   &nbsp العنوان: {{sco.mohafaza}}/{{sco.kadaa}}/{{sco.city}}</a>
+
+{% endfor %}
+<br><br>
+  <a> أصرح بأن الطلاب الواردة اسماؤهم فيما يلي:</a> <br><br><br>
+  <table border="1">
+    <td style="background:gray"; align="center">متسلسل</td>
+    <td style="background:gray"; align="center">الاسم والشهرة</td>
+    <td style="background:gray"; align="center">تاريخ الولادة</td>
+    <td style="background:gray"; align="center">الصف</td>
+    <td style="background:gray"; align="center">نوع المدرسة</td>
+    <td colspan="2"style="background:gray"; align="center">قيمة رسم التعليم السنوي</td>
+    <tr>
+<script> var x=0 </script>
+{% for n in st %}
+{% for r in re %}
+{% if n.code == r.code1 %}
+
+<td align="center"> <script> var x=x+1;var z=x+1-1;document.write(z); </script></td>
+<td align="center">  {{r.nom1}} &nbsp  {{r.famille1}}</td>
+<td>{{n.dat|date:"Y-m-d"}}</td>
+<td>
+                       {% if r.classe1 == "ps1" %}
+                       <a> روضة أولى أساسي فرنسي</a>
+           
+                       {% endif %}
+                       {% if r.classe1 == "ps2" %}   
+                       <a>روضة ثانية أساسي فرنسي</a>
+           
+                     {% endif %}
+                     {% if r.classe1 == "ps3" %}
+                     <a>روضة ثالثة أساسي فرنسي</a>
+           
+                    {% endif %}
+  
+                      {% if r.classe1 == "eb1" %}
+                      <a>ألأول أساسي فرنسي</a>
+                    {% endif %}
+                     {% if r.classe1 == "eb2" %}
+                     <a>الثاني أساسي فرنسي</a>
+           
+                  {% endif %}
+                  {% if r.classe1 == "eb3" %}
+                  <a>الثالث أساسي فرنسي</a>
+           
+                {% endif %}
+                  {% if r.classe1 == "eb4" %}
+                  <a>الصف الحالي للطالب:الرابع</a>
+             
+                {% endif %}
+                 {% if r.classe1 == "eb5" %}
+                 <a>الخامس أساسي فرنسي</a>
+           
+               {% endif %}
+               {% if r.classe1 == "eb6" %}
+               <a>السادس أساسي فرنسي</a>
+           
+              {% endif %}
+  
+            {% if r.classe1 == "eb7" %}
+            <a>السابع أساسي فرنسي</a>
+           
+           {% endif %}
+           {% if r.classe1 == "eb8" %}
+           <a> الثامن أساسي فرنسي</a>
+           
+           {% endif %}
+           {% if r.classe1 == "eb9" %}
+           <a>التاسع أساسي فرنسي</a>
+            
+              {% endif %}
+  
+  
+              {% if r.classe1 == "sec-sc" %}
+              <a> الحادي عشر ثانوي فرنسي</a>
+             
+              {% endif %}
+                {% if r.classe1 == "bacc1-sc" %}
+                <a>   الثاني عشر-علوم الحياة فرنسي</a>
+             
+               {% endif %}
+             {% if r.classe1 == "bacc1-l" %}
+             <a> الثاني عشر-اداب فرنسي</a>
+             
+               {% endif %}
+             {% if r.classe1 == "sg" %}
+             <a> الثالث عشر -رياضيات فرنسي</a>
+             
+               {% endif %}
+              {% if r.classe1 == "sv" %}
+              <a> الثالث عشر-علوم الحياة فرنسي</a>
+             
+              {% endif %}
+              {% if r.classe1 == "se" %}
+              <a>الثالث عشر-اقتصاد فرنسي</a>
+             
+             {% endif %}
+             {% if r.classe1 == "lh" %}
+             <a>الثالث عشر- اداب فرنسي</a>
+              
+              {% endif %}
+  
+  
+
+
+</td>
+
+<td><a>خاص غير مجاني</a></td>
+{% for i in monydl %}
+     {% if i.classe == r.classe1 %} 
+       <td rowspan="2">{{i.amountll}} <br>+ {{i.amountdd}}</td>
+            
+       <td rowspan="2"> {{i.tl}} <br> {{i.td}}</td>
+     {% endif %}
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+<tr>
+   <td colspan="5" height="25"></td><tr>
+
+    {% endfor %}
+   </ol>
+  </table>
+<br><br> <br>
+<a> أبناء (4) <input type="text" name="nnn" size="35"></a>
+<a>قد سجلوا في مدرستنا ويتابعون الدراسة خلال العام الدراسي </a><a>{{ann}}</a> <br>
+<a>وان المبالغ المبينة أعلاه والتي دفعها رجل الأمن المذكور ,هي رسم التعليم الصافي المحدد للتعليم للطالب الخارجي دون أية اضافاتأخرى وفقا</a>
+<br>
+<a>ربطا: تعرفة رسمية برسم التعليم موقع عليها حسب الأصول</a> 
+<br>
+<a>&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp 
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+   &nbsp</a>
+<a>البيرة في:</a> <a><input type="text" name="das" size=12></a>
+<br>
+<a>&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp 
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+   &nbsp</a>
+<a>خاتم وتوقيع المسؤول عن ادارة المدرسة</a><br><br><br>
+<a>_______________________________________________________________________________________________</a>
+<br>
+<br><br><br>
+<a>ملاحظة :  1-الاسم والشهرة</a><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </a>
+<a>2-اسم المدرس وعنوانها</a><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </a>
+<a>3- تشطب الكلمة غير اللازمة</a><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </a>
+<a>4-اسم وشهرة رجل الامن</a>
+
+<a></a>
+<div class="no">
+<button  onclick="window.print()"> طباعة  pdf </button>
+<td><a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+  
+
+{% endblock work2 %}
+</body>
+
+</html>

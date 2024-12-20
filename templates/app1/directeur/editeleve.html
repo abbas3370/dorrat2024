@@ -1,0 +1,115 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% block work2 %}
+<br>
+  
+<form method="POST">
+  {% csrf_token  %}
+  <p>تعديل الطلاب </p>
+  <br>
+  <br>
+  <p> كود التلميد
+  <input type="text" name="code" required="True" value="{{rec.code}}" ></p>
+  <br>
+  <p> كود التلميد 
+  <input type="text" name="code1" required="True"> </p>
+  <p>اسم التلميد
+  <input type="text" name="nom" required="True" value="{{rec.nom}}"> </p>
+  
+  <p> اسم الاب
+  <input type="text" name="pere" required="True" value="{{rec.pere}}"> </p>
+  
+  <p> الشهرة 
+  <input type="text" name="famille" required="True" value="{{rec.famille}}"> </p>
+  
+ <p>اسم الام
+  <input type="text" name="mere" required="True" value="{{rec.mere}}"> </p>
+  
+  <p>البلدة 
+  <input type="text" name="city" required="True" value="{{rec.city}}"> </p>
+  
+  <p>تلفون 
+  <input type="tel"  name="tel" value="{{rec.tel}}"> </p>
+  
+  <p> تاريخ الولادة
+  <input type="date"   name="dat"  required="True" value="{{rec.dat}}"> </p>
+  
+  <p> مكان الولادة
+    <input type="text" name="lieu1" required="True" value="{{rec.lieu}}" ></p>
+    <p> رقم السجل
+      <input type="text" name="segel1" required="True" value="{{rec.segel}} ></p>
+ 
+  
+  <p> ملاحظة1
+    <input type="text" name="rem11" required="True"  value="{{rec.rem1}}></p>
+    <p> ملاحظة 2
+      <input type="text" name="rem21" required="True" value="{{rec.rem2}}></p>
+      <p> رقم1 
+        <input type="number" name="num11" required="True" value="{{rec.num1}}></p>
+        <p> رقم 2
+          <input type="number" name="num21" required="True" value="{{rec.num2}} ></p>
+                               
+
+  
+  
+  
+  
+  
+  
+  
+  
+  {% if menber.quit == 'مسجل' %}  
+  
+    <p> <select type= "text" name="quit" value="None" style="display:flow-root">
+      <option value="مسجل" >  مسجل </option>
+      <option value="ترك" >ترك </option>
+    </select></p>
+    {% else %}
+    <p>  <select type= "text" name="quit" value="None" style="display:flow-root">
+      <option value="ترك" >ترك </option>
+      <option value="مسجل" > مسجل  </option>
+    </select></p>
+  
+  {% endif %}
+  <br>
+  <br>
+  <input type="button" name="update" value=" Run Script "  onclick="exec('updateeleve.py');" >
+
+  <input type="submit" value="save"  >
+   </p>
+  <br>
+  
+  </form>
+  
+  
+{% endblock work2 %}
+
+
+</body>
+</html>

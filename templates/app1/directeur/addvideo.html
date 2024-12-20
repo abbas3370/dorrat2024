@@ -1,0 +1,69 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+
+  <form   method="POST">
+  {% csrf_token  %}
+ <table>
+  <p>سجل فيديو جديد </p>
+  <tabel border="1">
+  <td><label> تاريخ اليوم:
+  <input type="date" name="date01"  ></label></td>
+  <td>
+    
+        <label for="input">أدخل فيديو:</label>
+    <input type="file" id="input" name="pht" accept="video/mp4, video/mov">
+    <video id="video" width="320" height="240" controls style="display: none;"></video>
+
+    <script>document.getElementById("input").addEventListener("change", function() {
+      var media = URL.createObjectURL(this.files[0]);
+      var video = document.getElementById("video");
+      video.src = media;
+      video.style.display = "block";
+      video.play();
+    }); </script> </td>
+  </table>
+  
+<p>  <input type="submit" value="save"  ></p></td>
+    </table>
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/direct/directvideo" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+ <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+{% endblock work2 %}
+  
+
+</body>
+</html>

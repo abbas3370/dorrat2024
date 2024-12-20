@@ -1,0 +1,13 @@
+{% extends 'base1.html' %}
+
+{% block work2 %}
+
+{% for x in reco %}
+   <h1> numero de record{{x.id}} </h1>
+
+   <h1> chimie {{x.chimie}} </h1>
+   <h1> math {{x.math}} </h1>
+
+{% endfor %}
+
+{% endblock work2 %}

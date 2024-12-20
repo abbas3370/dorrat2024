@@ -1,0 +1,116 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ 
+     <br>
+     
+    <br>
+  <p>    البحث باسم و؟ لاظهار الصف</p>
+  <p><input type="text" name="nom1" ></p>
+  
+  <input type="submit" value="ابحث">
+  <br>
+  
+<br>
+<form method="POST">
+  {% csrf_token  %}
+  
+<table border="1" style="background-color: white";>
+  <td>الكود</td>
+  <td>الاسم</td>
+  <td>الاب</td>
+  <td>الشهرة</td>
+  <td>الام</td>
+  <td>البلدة</td>
+  <td>تلفون</td>
+  <td>تاريخ الولادة</td>
+  <td> محل الولادة </td>
+  <td>رقم السجل </td>
+  <td>الجنس</td>
+  <td>كود الأب </td>
+  <td> رقم 1 </td>
+  <td>رقم 2 </td>
+  <td>مسجل\ترك</td>
+  
+  {% for rec1 in rec %}
+  <tr>
+    
+    <td><a href="update1/{{rec1.code}}">{{rec1.code}}</a></td>
+  
+    <td>{{rec1.nom}}</td>
+    <td>{{rec1.pere}}</td>
+    <td>{{rec1.famille}}</td>
+    <td>{{rec1.mere}}</td>
+    <td>{{rec1.city}}</td>
+    <td>{{rec1.tel}}</td>
+    <td>{{rec1.dat}}</td>
+    <td>{{rec1.lieu}}</td>
+    <td>{{rec1.segel}}</td>
+    <td>{{rec1.rem1}}</td>
+    <td>{{rec1.rem2}}</td>
+    <td>{{rec1.num1}}</td>
+    <td>{{rec1.num2}}</td>
+
+    <td>{{rec1.quit}}</td>
+    <td><a href="del/{{rec1.code}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">حذف الطالب</a></td>  
+  {% endfor %}  
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<p>
+  <a href="add" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">طالب جديد </a>
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+</form>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

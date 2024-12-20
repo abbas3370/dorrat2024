@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+
+{% block work2 %}
+<br>
+  
+<form method="POST">
+  {% csrf_token  %}
+  <p>تعديل الطلاب </p>
+  <br>
+  <br>
+  <p> كود التلميد
+  <input type="text" name="code" required="True" value="{{rec.code}}" ></p>
+  <br>
+  <p> كود التلميد 
+  <input type="text" name="code1" required="True"> </p>
+  <p>اسم التلميد
+  <input type="text" name="nom" required="True" value="{{rec.nommatiere}}"> </p>
+  
+  <p> اسم الاب
+  <input type="text" name="classe" required="True" value="{{rec.classe}}"> </p>
+  
+  <p> الشهرة 
+  <input type="text" name="section" required="True" value="{{rec.section}}"> </p>
+  
+ <p>اسم الام
+  <input type="text" name="anne" required="True" value="{{rec.anne}}"> </p>
+  
+  <input type="submit" value="save"  >
+   </p>
+  <br>
+  
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  
+  <td><a href="/app1/direct/list-m" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  </div>
+  {% endblock work2 %}
+
+</body>
+</html>
+

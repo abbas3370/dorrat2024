@@ -1,0 +1,130 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<form   method="POST">
+  {% csrf_token  %}
+ <table>
+  <p>مادة جديدة </p>
+  <p> ادخال رموز المواد </p>
+  <p>  العام الدراسي</p>
+  <select type= "text" name="anne"  >
+    {% for xaxa in rec %}
+       <option value="{{xaxa.anne}}" > {{xaxa.anne}} </option>
+     {% endfor %}
+  </select>
+  <p> كود المادة</p>
+  <input type="text" name="code" required="True" >
+  <br>
+  <p>  المادة</p>
+   <p> <select  type="text" name="nommatiere1" >
+     <option value="math">math</option>
+     <option value="physique">physique</option>
+     <option value="chimie">chimie</option>
+     <option value="bio">biologie</option>
+     <option value="arab1">قراءة</option>
+     <option value="arab2">شفهي</option>
+     <option value="arab3">كتابي</option>
+     <option value="francais1">lecture</option>
+     <option value="francais2">orale</option>
+     <option value="francais3">ecrite</option>
+     <option value="eng">ecrite</option>
+     <option value="civisme">تربية مدنية</option>
+     <option value="historique">تاريخ</option>
+     <option value="geographie">جغرافيا</option>
+     <option value="economie">اقتصــاد</option>
+     <option value="socialite">اجتماع</option>
+     <option value="philosophie"> فلسفة</option>
+     <option value="informatique">كمبيوتر</option>
+     <option value="art">فنون</option>
+     <option value="religieu">تربية دينية</option>
+     <option value="sport">رياضة</option>
+     <option value="pass1">pass1</option>
+    </select> </p>
+
+  
+  
+    <br>
+    <p>الصف</p>
+     <p> <select type="text" name="classe">
+      <option value="ps1">ps1</option>
+      <option value="ps2">ps2</option>
+      <option value="ps3">ps3</option>
+      <option value="eb1">eb1</option>
+      <option value="eb2">eb2</option>
+      <option value="eb3">eb3</option>
+      <option value="eb4">eb4</option>
+      <option value="eb5">eb5</option>
+      <option value="eb6">eb6</option>
+      <option value="eb7">eb7</option>
+      <option value="eb8">eb8</option>
+      <option value="eb9">eb9</option>
+      <option value="sec-sc">seconde-sc</option>
+      <option value="bacc1-sc">bacc1-sc</option>
+      <option value="bacc1-l">bacc1-l</option>
+      <option value="sg">sg</option>
+      <option value="sv">sv</option>
+      <option value="se">se</option>
+      <option value="lh">LH</option>
+  
+    </select> </p>
+  <br>
+  <p>الشعبة</p>
+   <p>  <select name="section">
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option> 
+  
+  
+  </select> </p>
+  <p> العلامة القصوى</p>
+  <input type="number" rquired="True" name="score1" value=0>
+  <br>
+    <input type="submit" value="save"  >
+    <br>
+    </form>
+
+
+  </table>
+ 
+
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/direct/list-m" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  <br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+  
+  
+{% endblock work2 %}
+
+
+</body>
+</html>

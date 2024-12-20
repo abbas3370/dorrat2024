@@ -1,0 +1,149 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  تعيين الصفوف للطلاب  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+   .c1 td {
+     background-color:greenyellow;
+   }
+   #asa{
+        
+    background-color: silver;
+   }
+      
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ 
+  <p>  العام الدراســـي</p>
+   
+    <select type= "text" name="anne2002"  >
+      <option value="{{rt}}" > {{rt}} </option> 
+      {% for xaxa in annn %}
+          <option value="{{xaxa.anne}}" > {{xaxa.anne}} </option>
+        {% endfor %}
+     </select>
+     
+  
+     <br>
+     
+    <br>
+  <p>    البحث باسم و؟ لاظهار الصف</p>
+  <p><input type="text" name="nom1001" ></p>
+
+  <input type="submit" value="ابحث">
+    </form>  
+  <br>
+  
+<br>
+
+<table border="1" style="background-color: white";>
+  <div id="asa" classe="c1" >
+  <td  colspan="7" style="background-color:yellow"; >اذا تم تحديد الصف والشعبة نستطيع تغيير الشعبة,اما اذا غيرنا الصف وكانت الشعبة محددة سابقا سوف تمحى علامة الطالب</td><tr>
+  <td style="background-color:yellow"; >العام</td>
+  <td style="background-color:yellow";>الكود</td>
+  <td style="background-color:yellow";>الاسم</td>
+  <td style="background-color:yellow";>الاب</td>
+  <td style="background-color:yellow";>الشهرة</td>
+  <td style="background-color:yellow";>الصف </td>
+  <td style="background-color:yellow";>الشعبة</td>
+  <td style="background-color:gray";> </td>
+  </div> 
+  {% for rec1 in rec %}
+  <form method="POST" action ="updateliste/{{rec1.code1}}/{{rec1.anne1}}">
+    {% csrf_token  %}
+    
+   <tr>
+    <td>{{rec1.anne1}}</td>
+    <td><a href="#" onClick='alert('انت الان تقوم بتغيين الصف')>{{rec1.code1}}</a></td>
+    <td>{{rec1.nom1}}</td>
+    <td>{{rec1.pere1}}</td>
+    <td>{{rec1.famille1}}</td>
+         
+     <td><select name="classe2002">
+       <option value="{{rec1.classe1}}">{{rec1.classe1}}</option>
+       <option value="ps1">ps1</option>
+       <option value="ps2">ps2</option>
+       <option value="ps3">ps3</option>
+       <option value="eb1">eb1</option>
+       <option value="eb2">eb2</option>
+       <option value="eb3">eb3</option>
+       <option value="eb4">eb4</option>
+       <option value="eb5">eb5</option>
+       <option value="eb6">eb6</option>
+       <option value="eb7">eb7</option>
+       <option value="eb8">eb8</option>
+       <option value="eb9">eb9</option>
+       <option value="sec-sc">seconde-sc</option>
+       <option value="bacc1-sc">bacc1-sc</option>
+       <option value="bacc1-l">bacc1-l</option>
+       <option value="sg">sg</option>
+       <option value="sv">sv</option>
+       <option value="se">se</option>
+       <option value="lh">LH</option>
+       </td>  
+    
+       <td><select name="section2002">
+       <option value="{{rec1.section1}}">{{rec1.section1}}</option>
+       <option value="A">A</option>
+       <option value="B">B</option>
+       <option value="C">C</option>
+       <option value="D">D</option>
+       <option value="E">E</option> 
+       </select></td> 
+       <td style="background-color:gray";> <input type="submit" value="  حفظ الصف و الشعبة  "></td>
+      </tr>
+    </form>
+    
+  {% endfor %}
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

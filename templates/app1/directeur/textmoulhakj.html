@@ -1,0 +1,414 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    table ,td{
+       border:1px solid  black;
+       border-collapse: collapse;
+    }
+
+    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+
+
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+
+{% extends 'base01.html' %}
+{% block work2 %}
+<table><td width="856" height="20" align="center">       
+ملحق " ج " لتعليمات التقديمات المدرسية</td><tr>
+<td width="856" height="20" align="center">المرفقة بمذكرة الخدمة رقم 28888/ ع د/ إ / م ع تاريخ 2/10/2014
+</td></table>
+
+
+<table border="1"><td  colspan="5" width="856" height="10" align="center">                  إفـــــــــــــــادة مدرسيـــــــة                      </td><tr>
+
+{% for sco in scho %}
+
+  <td   colspan="2" width="450" height="15">رقم المدرسة من المركز التربوي للبحوث:{{sco.numeducation}}</td><td  colspan="3"  width="200" height="15">إسم وشهرة مدير المدرسة :{{sco.directeur}}</td><tr>
+<td  colspan="2" width="200" height="15">تصنيف المدرسة (1): {{sco.tasnif}}</td> <td colspan="3" width="200" height="15">إسم المدرسة  :{{sco.name}}</td><tr>
+<td colspan="1" width="200" height="15">رقم فاكس المدرسة :{{sco.fax}}</td><td colspan="2" width="100" height="15">تاريخ الترخيص :{{sco.rem1}} </td><td colspan="2" width="100" height="15">رقم الترخيص (2) :{{sco.tarhis}} 	</td><tr>
+<td width="100" height="15">عنوان المدرسة (3) :{{sco.city}}</td><td width="100" height="15">المحافظة:{{sco.mohafaza}}</td><td width="100" height="15">القضاء:{{sco.kadaa}}	</td ><td width="100" height="15">البلدة: {{sco.city}}</td><td width="100" height="15">هاتف:{{sco.tel}}</td></table>
+{% endfor %}
+<br>
+<table border="1">
+  <td  width="282" height="15">اسم وشهرة الطالب:{{w1}}  {{w3}}</td><td width="284" height="15">اسم الاب:{{w2}}</td><td width="284" height="15">اسم الام:{{w4}}</td><tr>
+  <td  width="282" height="15">تاريخ ولادة الطالب:{{nais|date:"d-m-Y"}}</td><td width="284" height="15">الجنس:{{sexe}}</td><td width="284" height="15">العام الدراسي الحالي:{{w6}}</td><tr>
+    {% if c6 == "ps1" %}
+    <td  width="282" height="15">الصف الحالي للطالب:روضة أولى</td>
+    <td width="282" height="15">المرحلة:روضات</td>
+    {% endif %}
+    {% if c6 == "ps2" %}
+    <td  width="282" height="15">الصف الحالي للطالب:روضة ثانية</td>
+    <td width="282" height="15">المرحلة:روضات</td>
+    {% endif %}
+    {% if c6 == "ps3" %}
+    <td  width="282" height="15">الصف الحالي للطالب:روضة ثالثة</td>
+    <td width="282" height="15">المرحلة:روضات</td>
+    {% endif %}
+    
+    {% if c6 == "eb1" %}
+    <td  width="282" height="15">الصف الحالي للطالب:ألأول</td>
+    <td width="282" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c6 == "eb2" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثاني</td>
+    <td width="282" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c6 == "eb3" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثالث</td>
+    <td width="282" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c6 == "eb4" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الرابع</td>
+    <td width="282" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c6 == "eb5" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الخامس</td>
+    <td width="282" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c6 == "eb6" %}
+    <td  width="282" height="15">الصف الحالي للطالب:السادس</td>
+    <td width="282" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    
+    {% if c6 == "eb7" %}
+    <td  width="282" height="15">الصف الحالي للطالب:السابع</td>
+    <td width="282" height="15">المرحلة:المتوسطة</td>
+    {% endif %}
+    {% if c6 == "eb8" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثامن</td>
+    <td width="282" height="15">المرحلة:المتوسطة</td>
+    {% endif %}
+    
+
+    {% if c6 == "eb9" %}
+    <td  width="282" height="15">الصف الحالي للطالب:التاسع</td>
+    <td width="282" height="15">المرحلة:المتوسطة</td>
+    {% endif %}
+    {% if c6 == "sec-sc" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الاول ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c6 == "bacc1-sc" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثاني ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c6 == "bacc1-l" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثاني ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c6 == "sg" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثالث ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c6 == "sv" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثالث ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c6 == "se" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثالث ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c6 == "lh" %}
+    <td  width="282" height="15">الصف الحالي للطالب:الثالث ثانوي</td>
+    <td width="282" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    <td width="282" height="15">الاختصاص المهني:</td><tr>
+    <td  width="200" height="15">القسط بالارقام : {{ll6}} ل.ل. {{dd6}} $$</td><td colspan="2" width="50" height="15">القسط بالحرف: {{tafl1}}&nbspليرة لبنانية + {{tafd1}}&nbsp دولار اميريكي</td><tr>
+    <td colspan="3" width="856" height="15" align="right"><p> إن قيمة القسط الصافي المدون أعلاه هي القيمة نفسها المصرّح عنها لوزارة التربية والتعليم العالي للطالب الخارجي دون إضافات (6)</p></td><tr>
+    <td colspan="3" width="856" height="15" align="right"><p> ملاحظة : عدم تدوين أي قيمة مالية للطلاب الذين يتعلمون مجانًا وتم تزويد وزارة التربية والتعليم العالي باسمائهم منعًا لإزدواجية الإستفادة.</p></td><tr>
+    <td colspan="2" width="300"  height="15" align="right" >قيمة أو نسبة الحسم المقدّم للطالب (7) : </td>
+    <td rowspan="3"  width="100" height="15" align="right"><p>البيرة في :</p><p>الخاتم والتوقيع:</p></td><tr>
+    <td  colspan="2" width="300"  height="15" align="right">قيمة القسط بعد الحسم ل.ل.(8):  </td><tr><td  colspan="2" width="300" height="30" align="center">تعبأ المعلومات المذكورة أعلاه من قبل إدارة المدرسة وعلى مسؤوليتها.</td><tr>
+
+</table>
+<tr>
+<table border="1">
+  <td colspan="3" width="856" height="15" align="center">   <p>   الصفوف / السنوات التي تابعها الطالب خلال العامين الدراسيين السابقين   </p>  </td><tr>
+  
+  
+  <td>السنة الدراسية:{{w7}} </td>
+     {% if c7 == "" %}
+     <td  width="284" height="15">الصف :</td>
+     <td width="284" height="15">المرحلة:</td>
+     {% endif %}  
+    {% if c7 == "ps1" %}
+    <td  width="284" height="15">الصف :روضة أولى</td>
+    <td width="284" height="15">المرحلة:روضات</td>
+    {% endif %}
+    {% if c7 == "ps2" %}
+    <td  width="284" height="15">الصف :روضة ثانية</td>
+    <td width="284" height="15">المرحلة:روضات</td>
+    {% endif %}
+    {% if c7 == "ps3" %}
+    <td  width="284" height="15">الصف :روضة ثالثة</td>
+    <td width="284" height="15">المرحلة:روضات</td>
+    {% endif %}
+    
+    {% if c7 == "eb1" %}
+    <td  width="284" height="15">الصف:ألأول</td>
+    <td width="284" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c7 == "eb2" %}
+    <td  width="284" height="15">الصف :الثاني</td>
+    <td width="284" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c7 == "eb3" %}
+    <td  width="284" height="15">الصف :الثالث</td>
+    <td width="284" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c7 == "eb4" %}
+    <td  width="284" height="15">الصف :الرابع</td>
+    <td width="284" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c7 == "eb5" %}
+    <td  width="284" height="15">الصف :الخامس</td>
+    <td width="284" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    {% if c7 == "eb6" %}
+    <td  width="284" height="15">الصف :السادس</td>
+    <td width="284" height="15">المرحلة:الابتدائية</td>
+    {% endif %}
+    
+    {% if c7 == "eb7" %}
+    <td  width="284" height="15">الصف :السابع</td>
+    <td width="284" height="15">المرحلة:المتوسطة</td>
+    {% endif %}
+    {% if c7 == "eb8" %}
+    <td  width="284" height="15">الصف :الثامن</td>
+    <td width="284" height="15">المرحلة:المتوسطة</td>
+    {% endif %}
+    
+
+    {% if c7 == "eb9" %}
+    <td  width="284" height="15">الصف :التاسع</td>
+    <td width="284" height="15">المرحلة:المتوسطة</td>
+    {% endif %}
+    {% if c7 == "sec-sc" %}
+    <td  width="284" height="15">الصف :الاول ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c7 == "bacc1-sc" %}
+    <td  width="284" height="15">الصف :الثاني ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c7 == "bacc1-l" %}
+    <td  width="284" height="15">الصف :الثاني ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c7 == "sg" %}
+    <td  width="284" height="15">الصف :الثالث ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c7 == "sv" %}
+    <td  width="284" height="15">الصف :الثالث ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c7 == "se" %}
+    <td  width="284" height="15">الصف :الثالث ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    {% if c7 == "lh" %}
+    <td  width="284" height="15">الصف :الثالث ثانوي</td>
+    <td width="284" height="15">المرحلة:الثانوية</td>
+    {% endif %}
+    <tr>
+
+
+
+<td>السنة الدراسية:{{w8}} </td>
+{% if c8 == "" %}
+<td  width="284" height="15">الصف :</td>
+<td width="284" height="15">المرحلة:</td>
+{% endif %}  
+
+{% if c8 == "ps1" %}
+<td  width="284" height="15">الصف :روضة أولى</td>
+<td width="284" height="15">المرحلة:روضات</td>
+{% endif %}
+{% if c8 == "ps2" %}
+<td  width="284" height="15">الصف :روضة ثانية</td>
+<td width="284" height="15">المرحلة:روضات</td>
+{% endif %}
+{% if c8 == "ps3" %}
+<td  width="284" height="15">الصف :روضة ثالثة</td>
+<td width="284" height="15">المرحلة:روضات</td>
+{% endif %}
+
+{% if c8 == "eb1" %}
+<td  width="284" height="15">الصف:ألأول</td>
+<td width="284" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c8 == "eb2" %}
+<td  width="284" height="15">الصف :الثاني</td>
+<td width="284" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c8 == "eb3" %}
+<td  width="284" height="15">الصف :الثالث</td>
+<td width="284" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c8 == "eb4" %}
+<td  width="284" height="15">الصف :الرابع</td>
+<td width="284" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c8 == "eb5" %}
+<td  width="284" height="15">الصف :الخامس</td>
+<td width="284" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c8 == "eb6" %}
+<td  width="284" height="15">الصف :السادس</td>
+<td width="284" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+
+{% if c8 == "eb7" %}
+<td  width="284" height="15">الصف :السابع</td>
+<td width="284" height="15">المرحلة:المتوسطة</td>
+{% endif %}
+{% if c8 == "eb8" %}
+<td  width="284" height="15">الصف :الثامن</td>
+<td width="284" height="15">المرحلة:المتوسطة</td>
+{% endif %}
+{% if c8 == "eb9" %}
+<td  width="284" height="15">الصف :التاسع</td>
+<td width="284" height="15">المرحلة:المتوسطة</td>
+{% endif %}
+
+
+{% if c8 == "sec-sc" %}
+<td  width="284" height="15">الصف :الاول ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c8 == "bacc1-sc" %}
+<td  width="284" height="15">الصف :الثاني ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c8 == "bacc1-l" %}
+<td  width="284" height="15">الصف :الثاني ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c8 == "sg" %}
+<td  width="284" height="15">الصف :الثالث ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c8 == "sv" %}
+<td  width="284" height="15">الصف :الثالث ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c8 == "se" %}
+<td  width="284" height="15">الصف :الثالث ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c8 == "lh" %}
+<td  width="284" height="15">الصف :الثالث ثانوي</td>
+<td width="284" height="15">المرحلة:الثانوية</td>
+{% endif %}
+<tr>
+
+
+
+
+
+
+
+
+
+
+  
+  <td colspan="2" height="30" >تعبأ المعلومات المذكورة أعلاه من قبل إدارة المدرسة في حال كان الطالب منتسباً إليها ، وإلا على عاتق <br>ومسؤولية ولي أمر الطالب وتوقيعه ويحرم لمدة سنة دراسية كل مستفيد من التقديمات المدرسية لدى<br>ثبوت خطأ مقصود وتسترد القيمة المدفوعة .</td>
+  <td><p align="center">   في:           </p><p align="center"> الخاتم والتوقيع:</p></td><tr>
+
+  </table>
+  <table border="1">
+
+  <td colspan="2" width="856" height="30" align="right">تصنيف الطالب (4) :                                  |                          درجة التعطيل للمسرحين لاسباب صحية منسوبة للخدمة :          </td><tr>
+  <td width="150" height="20">بعد التدقيق والتأكد من صحة<br>المعلومات قائد القطعة / رئيس <br>قسم إدارة ورعاية شؤون<br>العسكريين في المنطقة / ضابط<br>الإدارة (9)</td>
+  <td width="600" height="20"> <p align="center" >   تعهد ولي الامر              </p>
+    ------------------------------------------------------------------------------------------------------------------<br>
+    الرتبة....................................................... والإسم والشهرة : <br>
+    -------------------------------------------------------------------------------------------------------------------<br>
+   الرقم:   .............................                                    |        	رقم التقاعد:	     ................................   |                                رقم البطاقة الصحية للمتقاعد:<br>
+   </td><tr>
+    <td>   <p align="center" width="150" height="20">  في :     </p>     الختم والتوقيع :   </td>
+    <td>أتعهد على مسؤوليتي بإفادة /بإعلام (4) قطعتي الإدارية في حال ترك إبني /إبنتي المدرسة قبل الأول من آذار من العام الدراسي<br>
+    الحالي وأن القسط المذكور في الخانة رقم (8) هو المبلغ المدفوع للمدرسة .<br>
+    -----------------------------------------------------------------------------------------------------------------<br>
+    في    ......  /   .... / .....   20                  ...........................              |                               التوقيع ...........: ..........        
+  
+</td><tr>
+      
+    </table>
+
+
+  (*) دون توقيع للتعليم في الخارج على أن تتم تعبئة الإفادة بالمعلومات من قبل ولي أمر الطالب . <br>
+  (1) يذكر التصنيف : رسمي /  خاص / خاص مجاني .  <br>
+  (2) رقم مستند الترخيص للمدرسة الخاصة وتاريخه ( صادر عن وزارة التربية والتعليم العالي ). <br>
+  (3) العنوان كاملا (وفقا للترخيص ) <br>
+  (4) ذكر حالة الطالب: عادي , من ذوي الإحتياجات الخاصة(توحّد, صعوبات تعليمية, إضطرابات النطق أو اللغة, حالة دائمة من الإعتلال  <br>
+ الفيزيائي  أو العقلي الكلي أو الجزئي).  <br>
+  (5) تذكر مرحلة التعليم ( روضة – إبتدائي – متوسط- ثانوي  / مهني ) <br>
+  (6) تعتبر إضافات ولا تدرج ضمن القسط البدلات التالية : نقل –كتب – قرطاسية – تأمين – كمبيوتر .........إلخ ( على عاتق مدير المدرسة ). <br>
+  (7) تعبأ من قبل إدارة المدرسة  على الشكل التالي : نسبة مئوية من القسط ، مبلغ مقطوع ، ما يدفعه الجيش ، دون حسم ................إلخ. <br>
+  (8) قيمة القسط بعد الحسم  <br>
+  (9) قائد القطعة للضباط – ضابط الإدارة لباقي العسكريين والموظفين المدنيين في الخدمة – رئيس قسم إدارة ورعاية شؤون العسكريين في <br>
+  المناطق   أو ضابط الإدارة في القسم للشهداء والمتوفين والمعوقين المسرحين والمتقاعدين (عسكريين ومدنيين ). <br>
+  معدّلة ومستبدلة بموجب البرقية رقم 8000 /ع د/  إ / م ع تاريخ 26/2/2018<br>
+ <a> &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+  17</a>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="no">
+    <button  onclick="window.print()"> طباعة  pdf </button>
+    <td><a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+    </div>
+    
+
+{% endblock work2 %}
+  
+
+</body>
+</html>

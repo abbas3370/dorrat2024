@@ -1,0 +1,263 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اصدار علامة طالب روضات </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display : inline-block;
+  }  
+   #asas td {
+     background-color:greenyellow;
+     width=20px;
+     height=10px;
+    }
+   #asa{
+        
+    background-color: silver;
+   }
+  label {
+    background-color: silver;
+    color:blue;
+  }      
+  #swe {
+    width=50;
+  }
+
+@media print { 
+  .nonprint{
+             display:none;
+}
+.no{
+  display:none;
+}
+.pgbr{
+  clear: both;
+  page-break-after: always;
+}
+}
+
+
+
+</style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+{% extends 'base01.html' %}
+{% block work2 %}
+
+
+<form method="POST"  >
+  {% csrf_token  %}
+
+  <table  class="no" border="1" style="background-color: white";>
+    
+    
+    <td><label> :كود الطالب<input type="text" name="cod2030" ></label></td>
+    
+    <td> <label> العام الدراسي </label>
+         <select type="text" name="anne2030"> 
+          {% for rec101 in an %}
+            <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+          {% endfor %}
+         </select> </td>
+    
+     
+    <td> <input type="submit" value="اصدار بطاقة علامات للطالب"></td>
+    
+    <br>
+  
+  </table>
+</form>  
+  
+<br>
+{% load static %}
+{% for recnom1 in recnom %} 
+
+
+
+<table  border="1" style =" background-color: white";>
+  <div><td colspan="4" style="background-color:yellow";><img src="/static/image/logo1.jpg" alt="c:\pictures\logo1.jpg"  style=" border:2px  solid #4d694e"  width="100" height="50">   بطاقة العلامات المدرســـيّة    </td> </div>
+       <tr>
+       <td>   اسم الطالب: {{recnom1.nom1}} {{recnom1.pere1}} {{recnom1.famille1}}</td><td> </td><td> الصف: {{recnom1.classe1}} والشعبة :{{recnom1.section1}}</td>
+       <td>                                           العام الدراسي :{{recnom1.anne1}}         .                                           </td>   
+    
+ </table>
+       
+   <table class="pgbr" border="1" style =" background-color: white";>
+    <td colspan="4" style="background-color:yellow";>اللغة العربية</td><tr>
+    <td></td><td> سعي أول</td><td> سعي ثاني</td><td>سعي ثالث </td><tr>
+      
+    <td colspan="4"style="background-color:silver";>المجال اللغوي</td><tr>
+    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+
+        {% if rec1.code1 == recnom1.code1 %}     
+           {% if rec1.groupe == "اللغة العربية" %} 
+                 {% if rec1.champ == "المجال اللغوي" %} 
+                 <td>{{rec1.souschamp}}</td>               
+                  <td>{{rec1.sem1}}</td>
+                  <td>{{rec1.sem2}}</td>
+                  <td>{{rec1.sem3}}</td>
+                  <tr>
+                  {% endif %} {% endif %} {% endif %}</form> {% endfor %}
+
+
+     <td colspan="4" style="background-color:silver";>المجال الحسي الحركي</td><tr>
+                    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+                        {% if rec1.code1 == recnom1.code1 %}     
+                           {% if rec1.groupe == "اللغة العربية" %} 
+                                 {% if rec1.champ == "المجال الحسي الحركي" %} 
+                                  <td>{{rec1.souschamp}}</td>               
+                                  <td>{{rec1.sem1}}</td>
+                                  <td>{{rec1.sem2}}</td>
+                                  <td>{{rec1.sem3}}</td>
+                                  <tr>
+                                                  {% endif %} {% endif %} {% endif %}</form> {% endfor %}
+     <td colspan="4" style="background-color:silver";>المجال العلمي</td><tr>
+                                    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+                                        {% if rec1.code1 == recnom1.code1 %}     
+                                           {% if rec1.groupe == "اللغة العربية" %} 
+                                                 {% if rec1.champ == "المجال العلمي" %} <td>{{rec1.souschamp}}</td>               
+                                                 <td>{{rec1.sem1}}</td>
+                                                 <td>{{rec1.sem2}}</td>
+                                                 <td>{{rec1.sem3}}</td>
+                                                 <tr>
+                                                
+                                                  {% endif %} {% endif %} {% endif %}</form> {% endfor %}
+    <td colspan="4" style="background-color:silver";>المجال الاجتماعي</td><tr>
+                                                    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+                                                        {% if rec1.code1 == recnom1.code1 %}     
+                                                           {% if rec1.groupe == "اللغة العربية" %} 
+                                                                 {% if rec1.champ == "المجال الاجتماعي" %} <td>{{rec1.souschamp}}</td>               
+                                                                 <td>{{rec1.sem1}}</td>
+                                                                 <td>{{rec1.sem2}}</td>
+                                                                 <td>{{rec1.sem3}}</td>
+                                                                 <tr>
+                                                                
+                                                                  {% endif %} {% endif %} {% endif %} </form>{% endfor %}
+                                                     
+<td colspan="4" style="background-color:silver";>المجال الفني</td><tr>
+    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+        {% if rec1.code1 == recnom1.code1 %}     
+           {% if rec1.groupe == "اللغة العربية" %} 
+                 {% if rec1.champ == "المجال الفني" %}<td>{{rec1.souschamp}}</td>               
+                 <td>{{rec1.sem1}}</td>
+                 <td>{{rec1.sem2}}</td>
+                 <td>{{rec1.sem3}}</td>
+                 <tr>
+                
+                  {% endif %} {% endif %} {% endif %} </form>{% endfor %}
+
+
+
+
+<td colspan="4" style="background-color:yellow";>La langue francaise</td><tr>
+<td></td><td> سعي أول</td><td> سعي ثاني</td><td>سعي ثالث </td><tr>
+
+ <td colspan="4" style="background-color:silver";>Developpement langagier</td><tr>
+    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+        {% if rec1.code1 == recnom1.code1 %}     
+           {% if rec1.groupe == "La langue francaise" %} 
+                 {% if rec1.champ == "Developpement langagier" %}<td>{{rec1.souschamp}}</td>               
+                 <td>{{rec1.sem1}}</td>
+                 <td>{{rec1.sem2}}</td>
+                 <td>{{rec1.sem3}}</td>
+                 <tr>
+                
+                  {% endif %} {% endif %} {% endif %}</form> {% endfor %}
+<td colspan="4" style="background-color:silver";>Developpement scientifique</td><tr>
+    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+        {% if rec1.code1 == recnom1.code1 %}     
+           {% if rec1.groupe == "La langue francaise" %} 
+                 {% if rec1.champ == "Developpement scientifique" %}<td>{{rec1.souschamp}}</td>               
+                 <td>{{rec1.sem1}}</td>
+                 <td>{{rec1.sem2}}</td>
+                 <td>{{rec1.sem3}}</td>
+                 <tr>
+                
+                  {% endif %} {% endif %} {% endif %}</form> {% endfor %}
+                
+
+ <td colspan="4" style="background-color:silver";>Developpement psychomoteur</td><tr>
+                    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+                        {% if rec1.code1 == recnom1.code1 %}     
+                           {% if rec1.groupe == "La langue francaise" %} 
+                                 {% if rec1.champ == "Developpement psychomoteur" %} <td>{{rec1.souschamp}}</td>               
+                                 <td>{{rec1.sem1}}</td>
+                                 <td>{{rec1.sem2}}</td>
+                                 <td>{{rec1.sem3}}</td>
+                                 <tr>
+                                
+                                  {% endif %} {% endif %} {% endif %}</form> {% endfor %}
+                
+
+<td colspan="4" style="background-color:silver";>Developpement artistique</td><tr>
+                                    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+                                        {% if rec1.code1 == recnom1.code1 %}     
+                                           {% if rec1.groupe == "La langue francaise" %} 
+                                                 {% if rec1.champ == "Developpement artistique" %} <td>{{rec1.souschamp}}</td>               
+                                                 <td>{{rec1.sem1}}</td>
+                                                 <td>{{rec1.sem2}}</td>
+                                                 <td>{{rec1.sem3}}</td>
+                                                 <tr>
+                                                
+                                                  {% endif %} {% endif %} {% endif %} </form>{% endfor %}
+<td colspan="4" style="background-color:silver";>Developpement social</td><tr>
+                                                    {% for rec1 in reco %}    <form  method="POST" action ="/app1/directcarnetps/savenoteps/{{rec1.id}}/{{rec1.anne1}}/{{rec1.classe1}}/{{rec1.section1}}/{{rec1.nom1}}/{{rec1.famille1}}"> {% csrf_token  %}
+
+                                                        {% if rec1.code1 == recnom1.code1 %}     
+                                                           {% if rec1.groupe == "La langue francaise" %} 
+                                                                 {% if rec1.champ == "Developpement social" %}<td>{{rec1.souschamp}}</td>               
+                                                                 <td>{{rec1.sem1}}</td>
+                                                                 <td>{{rec1.sem2}}</td>
+                                                                 <td>{{rec1.sem3}}</td>
+                                                                 <tr>
+                                                                
+                                                                  {% endif %} {% endif %} {% endif %}</form>{% endfor %}
+                                                                                
+  
+</table>
+  
+{% endfor %}
+   
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+<br>
+<button onclick="window.print()"> طباعة  pdf </button>
+<br>
+<a href="{% url 'bord'%}" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="nonprint">خروج الى اللائحة الاساسية</a>
+</div>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  

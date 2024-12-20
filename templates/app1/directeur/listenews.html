@@ -1,0 +1,120 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  صناعة الخبـــر  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+   .c1 td {
+     background-color:greenyellow;
+   }
+   #asa{
+        
+    background-color: silver;
+   }
+      
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+<table border="1" style="background-color:lightyellow"> 
+    <td>
+    البحث بالتاريخ
+  <input type="date" name="date1001" >
+    </td><td>
+    جزء من الخبر
+  <input type="text" name="pnews" > </td><td>
+     الشهر:
+  <input type="text" name="m1001" > </td><td>
+      السنة:
+  <input type="text" name="a1001" > </td><td>
+
+  <input type="submit" value="ابحث"> </td><td>
+    <td>&nbsp &nbsp&nbsp</td>
+    <td>
+    <a href="addnews"  style="background-color:blue  ;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خبر جديد </a></td>
+
+    <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+    
+
+
+  </table>  
+  </form>  
+  <br>
+  
+
+<table border="1" style="background-color:lightblue";>
+  <div id="asa" classe="c1" >
+  <td style="background-color:yellow";>الكود</td>
+  <td style="background-color:yellow";>التاريخ</td>
+  <td style="background-color:yellow";>الخبر</td>
+  <td style="background-color:yellow";>ملاحظة1</td>
+  <td style="background-color:yellow";>ملاحظة2 </td>
+  
+  </div> 
+  {% for rec1 in reco %}
+  <form method="POST" action ="/app1/eleve1/updatelistenews/{{rec1.id}}">
+    {% csrf_token  %}
+    
+   <tr>
+    <td><a href="#" >{{rec1.id}}</a></td>
+    <td>{{rec1.dat}}</td>
+    <td>الخبر:<textarea  name="news11" rows="6" cols="40"  >{{rec1.news1}}</textarea></td>
+    <td>ملاحظة1<textarea  name="rem11" rows="6" cols="40"  >{{rec1.rem1}}</textarea></td>
+    <td>ملاحظة2<textarea  name="rem21" rows="6" cols="40"  >{{rec1.rem2}}</textarea></td>
+    <td><input type="submit" value="تعديل"></td>     
+    <td><a href="delnews/{{rec1.id}}"  style="background-color: lightbrown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">محي الخبر </a></td>
+       
+      </tr>
+    </form>
+    
+  {% endfor %}
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<br>
+<br>
+<a href="addnews"  style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خبر جديد </a>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

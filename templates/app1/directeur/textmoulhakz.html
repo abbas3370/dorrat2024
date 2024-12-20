@@ -1,0 +1,230 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    table ,td{
+       border:1px solid  black;
+       border-collapse: collapse;
+    }
+
+    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+
+
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+
+{% extends 'base01.html' %}
+{% block work2 %}
+<a width="856" height="20" align="center">       
+  &nbsp &nbsp &nbsp  &nbsp &nbsp&nbsp &nbsp &nbsp  &nbsp &nbsp&nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp
+
+  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbspملحق " ز " لتعليمات التقديمات في المدرسة</a><br>
+ <a width="856" height="20" align="center">&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp
+  &nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbspالمرفقة بمذكرة الخدمة رقم 350/ ع د/ إ / م ع تاريخ 7/1/2003
+</a>
+
+<br>
+<br>
+<br>
+
+<table> <td> الرقم العسكري:&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+
+  <br> الاسم والشهرة: <br> الرتبة : <br> القطعة: </td></table>
+  <br>
+  <a width="856" height="20" align="center">       
+    &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+    &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbspافادة انهاء العام الدراسي</a><br>
+    <br>
+
+
+{% for sco in scho %}
+<a> أنا </a><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a>        {{sco.directeur}}    </a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a> مدير(ة) مدرسة /جامعة(1)</a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a><a>{{sco.name}} </a>
+<br><br>
+<a>الكائنة في </a><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>  <a>{{sco.city}}</a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>  <a>قضاء</a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>  <a>{{sco.kadaa}}</a>  <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a>محافظة</a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>  <a>{{sco.mohafaza}}</a>
+<br><br>
+<a>أفيد على مسؤوليتي أن التلميذ(ة) (1)</a>  <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a>{{w3}} {{w1}}</a>  <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a>ابن</a>  <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a>{{w2}}</a>
+<br><br>
+<a>المولود في </a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a> <a>{{nais|date:"d-m-Y"}}</a><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>  <a>قد أنهى دراسته للعام الدراسي الحالي</a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>  <a>{{w6}}</a>
+<br><br>
+<a>في الصف/السنة </a><a>&nbsp &nbsp </a>
+{% if c6 == "ps1" %}
+<td  width="282" height="15"> روضة أولى روضة فرنسي</td> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:روضات</td>
+{% endif %}
+{% if c6 == "ps2" %}
+<td  width="282" height="15">روضة ثانية روضة فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:روضات</td>
+{% endif %}
+{% if c6 == "ps3" %}
+<td  width="282" height="15">روضة ثالثة روضة فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:روضات</td>
+{% endif %}
+
+{% if c6 == "eb1" %}
+<td  width="282" height="15">ألأول أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c6 == "eb2" %}
+<td  width="282" height="15">الثاني أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c6 == "eb3" %}
+<td  width="282" height="15">الثالث أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c6 == "eb4" %}
+<td  width="282" height="15">الرابع أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c6 == "eb5" %}
+<td  width="282" height="15">الخامس أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+{% if c6 == "eb6" %}
+<td  width="282" height="15">السادس أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الابتدائية</td>
+{% endif %}
+
+{% if c6 == "eb7" %}
+<td  width="282" height="15">السابع أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:المتوسطة</td>
+{% endif %}
+{% if c6 == "eb8" %}
+<td  width="282" height="15">الثامن أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:المتوسطة</td>
+{% endif %}
+{% if c6 == "eb9" %}
+<td  width="282" height="15">التاسع أساسي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:المتوسطة</td>
+{% endif %}
+
+
+{% if c6 == "sec-sc" %}
+<td  width="282" height="15">الاول ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c6 == "bacc1-sc" %}
+<td  width="282" height="15">الثاني ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c6 == "bacc1-l" %}
+<td  width="282" height="15">الثاني ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c6 == "sg" %}
+<td  width="282" height="15">الثالث ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c6 == "sv" %}
+<td  width="282" height="15">الثالث ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c6 == "se" %}
+<td  width="282" height="15">الثالث ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+{% if c6 == "lh" %}
+<td  width="282" height="15">الثالث ثانوي ثانوي فرنسي</td><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<td width="282" height="15">المرحلة:الثانوية</td>
+{% endif %}
+<a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<a>    اختصاص    أكاديمي</a>
+<br><br>
+
+<a>ان القسط المدرسي (2) يبلغ :/بالارقام/</a><a>&nbsp &nbsp &nbsp</a> <a>{{ll6}}</a> <a>ل.ل. /بالأحرف /</a> <a>&nbsp {{tafl1}}&nbspليرة لبنانية</a>
+<br><br><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp </a>
+<a>/بالأرقام/</a> <a>&nbsp &nbsp &nbsp  </a><a>{{dd6}}</a> <a>$ / بالأحرف/</a> <a>&nbsp {{tafd1}}&nbsp دولار اميريكي</a>
+<br><br><br>
+<br>
+<br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp  
+</a>
+
+{% endfor %}
+
+
+<a>البيرة في </a>
+
+<br>
+<br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp   
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp
+</a>
+<a>الختم والتوقيع</a>
+<br><br><br><br><br><br><br><br><br>
+
+<a>(1) تشطب العبارة الغير مناسبة</a>
+<br>
+<a>(2) القسط الاساسي المرفوع في بداية العام الدراسي ضمنا الزيادات الطارئة</a>
+<br> <br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a>
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp</a> 
+<a>معدلة ومستبدلة بموجب البرقية المنقولة رقم 14640/ع د/ا/م ع تاريخ 07/06/2011</a>
+
+
+
+
+
+
+
+
+
+
+<div class="no">
+  <button  onclick="window.print()"> طباعة  pdf </button>
+  <td><a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+  
+
+{% endblock work2 %}
+  
+
+</body>
+</html>

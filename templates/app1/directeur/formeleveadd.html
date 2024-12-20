@@ -1,0 +1,143 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<form   method="POST">
+  {% csrf_token  %}
+ <table>
+  <p>طالب جديد </p>
+  <tabel border="1">
+  <td><label> كود التلميد
+  <input type="text" name="code"  ></label></td>
+  <td>
+  <label>اسم التلميد
+  <input type="text" name="nom" required="True" ></label></td>
+  <td><label> اسم الاب
+  <input type="text" name="pere"  required="True" ></label></td>
+  <td>
+  <label> الشهرة 
+  <input type="text" name="famille" required="True" ></label></td>
+  
+  <td>
+ <label>اسم الام
+  <input type="text" name="mere"  required="True" ></label></td>
+  <tr> 
+  </table>
+    
+  <p>
+  </p><p>
+  </p>
+  <table>
+  <td>
+  <label>     البلدة 
+   <input type="text" name="city" required="True"></label></td>
+   
+
+  
+    <td>
+      <label>       تلفون  
+  <input type="text" name="tel" required="True" ></label></td>
+  <td>
+ <label> مكان الولادة
+ <input type="text" name="lieu1" required="True" ></label></td>
+ <td><label> رقم السجل
+  <input type="text" name="segel1" required="True" ></label></td>
+  <td>
+    <label> تاريخ الولادة
+    
+    <input type="date"  placeholder="'DD-MM-YYYY'"  name="dat" required="True" >  </label></td>
+    </table>
+    
+  <p>
+  </p><p>
+  </p>
+    <table>
+    <td>
+      
+    <label>الجنس       <select type="text" name="rem11" required="True" ></label>
+      <option value="ذكر">ذكر</option>
+      <option value="أنثى">أنثى</option>
+      
+      
+      </td>
+    <td>
+      <label> كود الأب:        <input type="text" name="rem21" required="True" ></label></td>
+          <td>
+          <label> رقم1 
+          <input type="number" name="num11" required="True" ></p></td>
+          <td>
+            <p> رقم 2
+            <input type="number" name="num21" required="True" ></label></td>
+                                 
+
+
+<td>
+    {% if menber.quit == 'مسجل' %}  
+  
+    <label> م/ت<select type= "text" name="quit" value="None" style="display:flow-root">
+      <option value="مسجل" >  مسجل </option>
+      <option value="ترك" >ترك </option>
+    </select></label>
+    {% else %}
+    <label> م/ت <select type= "text" name="quit" value="None" style="display:flow-root">
+      <option value="ترك" >ترك </option>
+      <option value="مسجل" > مسجل  </option>
+    </select></label>
+    
+  
+  {% endif %}
+   
+  </td>
+  
+</table>
+
+<p>
+</p><p>
+</p> 
+<table>
+    <td>
+ 
+
+<p>  <input type="submit" value="save"  ></p></td>
+    </table>
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/eleve1/list" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+ <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+{% endblock work2 %}
+  
+
+</body>
+</html>

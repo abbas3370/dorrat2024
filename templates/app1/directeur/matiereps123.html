@@ -1,0 +1,160 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحديد مواد الروضات  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+  </style>
+  
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+ 
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+   {% if tt == "True" %}
+     <br><p> العام     <select type="text" name="anne1" disabled="True"> 
+     <option value={{ans}}>{{ans}}</option>
+      {% for rec101 in annn %}
+      <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+     {% endfor %}
+     </select>
+    <br></p>
+    <br><p>الصف     <select type="text" name="classe1" disabled="True"> 
+      <option value={{xc}}>{{xc}}</option>
+      <option value="ps1">ps1</option>
+      <option value="ps2">ps2</option>
+      <option value="ps3">ps3</option>
+       
+      </select>
+     <br></p>
+ 
+  <p>  البحث باسم المجموعة </p>
+  <p><input type="text" disabled="True" name="nom1" value={{nn}} ></p>
+  <input type="submit" value="ابحث">
+  
+  {% endif %}
+  
+  {% if tt == "False" %}
+     <br><p> العام     <select type="text" name="anne1" "> 
+     <option value={{ans}}>{{ans}}</option>
+      {% for rec101 in annn %}
+      <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+     {% endfor %}
+     </select>
+    <br></p>
+    <br><p>الصف     <select type="text" name="classe1" > 
+      <option value={{xc}}>{{xc}}</option>
+      <option value="ps1">ps1</option>
+      <option value="ps2">ps2</option>
+      <option value="ps3">ps3</option>
+       
+      </select>
+     <br></p>
+ 
+  <p>  البحث باسم المجموعة </p>
+  <p><input type="text"  name="nom1" value={{nn}} ></p>
+  <input type="submit" value="ابحث">
+  
+  {% endif %}
+  
+  
+  
+  <br>
+  
+<br>
+    </form>
+<table border="1" style="background-color: white";>
+  <td>الكود</td>
+  <td>العام</td>
+  <td>الصف</td>
+  <td>المجموعة</td>
+  <td>المجال</td>
+  <td>الهدف</td>
+  <td>ملاحظة1</td>
+  <td> ملاحظة2 </td>
+  <td>ملاحظة 3 </td>
+  <td> رقم 1</td>
+   <td>رقم 2 </td>
+  
+
+   {% for rec1 in rec %}
+
+<form method="POST" action ="/app1/eleveps/updatematps/{{rec1.id}}/{{rec1.groupe}}/{{rec1.champ}}/{{rec1.souschamp}}/{{rec1.rem1}}/{{rec1.rem2}}/{{rec1.rem3}}/{{rec1.num1}}/{{rec1.num2}}/{{rec1.anne}}/{{rec1.classe}}">
+  {% csrf_token  %}
+  
+  <tr>
+    
+    <td><a href="update1/{{rec1.id}}">{{rec1.id}}</a></td>
+  
+    <td>{{rec1.anne}}</td>
+    <td>{{rec1.classe}}</td>
+    <td> {{rec1.groupe}} </td>
+    <td>{{rec1.champ}} </td>
+    <td><input type="text" name="souschamp1" value={{rec1.souschamp}} ></td>
+    <td><input type="text" name="rem11" value={{rec1.rem1}} size=20></td>
+    <td><input type="text" name="rem21" value={{rec1.rem2}} size=10></td>
+    <td><input type="text" name="rem31" value={{rec1.rem3}} size=10></td>
+    <td><input type="text" name="num11" value={{rec1.num1}} size=5></td>
+    <td><input type="text" name="num21" value={{rec1.num2}} size=5></td>
+    <td><input type="submit" value="save" size=5></td>
+    {% if tt == "False" %}
+    
+    <td><a href="delps/{{rec1.id}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">حذف </a></td>  
+{% endif %}    
+  </form>
+
+    {% endfor %}  
+
+</table>
+<br>
+<br>
+<p>  </p>
+{% if tt == "False" %}
+
+<a href="addmatps" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">مجموعة جديدة </a>  
+{% endif %}  
+
+<div class='editLink'>
+
+
+<p>
+
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

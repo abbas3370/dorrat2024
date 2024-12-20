@@ -1,0 +1,485 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    table ,td{
+       border:1px solid  black;
+       border-collapse: collapse;
+    }
+
+    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+ input {
+ 
+  border: none;
+  outline:none;
+ }
+
+
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+
+{% extends 'base01.html' %}
+{% block work2 %}
+<u><h3 align="center">الملحق رقم/3/(أ)</h3></u>
+<u><h3 align="center">افادة مدرسية</h3></u>
+<br>
+{% for sco in scho %}
+
+<a>أنــا الموقع أدناه(1)</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.directeur}}&nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>مديــر مدرســـة</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.name}}&nbsp</a>
+<a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>والمصــنفة:</a><a>&nbsp &nbsp &nbsp</a><a>(رســمي - خاص <br>مجاني</a><a>-خـــــاص غيـــر مجــــــاني)(2) </a><a>رقم الترخيص (3)</a>
+<a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.tarhis}}&nbsp</a><a>&nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp</a><a>تاريخ</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.rem1}}&nbsp</a><a>&nbsp &nbsp &nbsp</a><a> &nbsp</a><a>الكائنة في </a><br>(4)<a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.city}}&nbsp<a>&nbsp &nbsp &nbsp</a></a>
+<a>قضاء</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.kadaa}}&nbsp</a><a>&nbsp &nbsp &nbsp</a>
+<a>محافظة</a><a>&nbsp &nbsp &nbsp</a>
+<a>&nbsp{{sco.mohafaza}}&nbsp</a><a>&nbsp &nbsp &nbsp</a>
+<a>هاتف</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.tel}}&nbsp</a><br>
+
+{% endfor %}
+
+<a>&nbsp &nbsp</a><a>أفيد على مسـؤوليتي أن الطـــالب/ة</a><a>&nbsp &nbsp &nbsp</a>
+<a>&nbsp{{w3}}&nbsp{{w1}}&nbsp</a><a>&nbsp &nbsp &nbsp</a>
+<a>المولود/ة في </a><a>&nbsp{{nais|date:"d-m-Y"}}&nbsp</a><a>&nbsp &nbsp &nbsp</a>
+<a>ابن/ة(5)</a><br><a> <input type="text" name="pe" size="15"> &nbsp{{w3}}&nbsp{{w2}}&nbsp</a>
+<a>هو/ي مسجل/ة في مدرستنا منذ </a>
+<a><input type="text" name="pan" size="15" ></a>
+<a>وهو/ي يتابع دراسته/ها للعام الدراسي</a>
+<a>الحالي</a><a>&nbsp{{w6}}&nbsp</a>
+<a>في الصف</a> <a>&nbsp &nbsp &nbsp</a><a>&nbsp </a>   {% if c6 == "ps1" %}
+<td  width="282" height="15">روضة أولى</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>روضة</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "ps2" %}
+<td  width="282" height="15">روضة ثانية</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>روضة</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "ps3" %}
+<td  width="282" height="15">روضة ثالثة</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>روضة</a><a>&nbsp</a></td>
+{% endif %}
+
+{% if c6 == "eb1" %}
+<td  width="282" height="15">ألأول</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "eb2" %}
+<td  width="282" height="15">الثاني</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb3" %}
+<td  width="282" height="15">الثالث</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb4" %}
+<td  width="282" height="15">الرابع</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb5" %}
+<td  width="282" height="15">الخامس</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb6" %}
+<td  width="282" height="15">السادس</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+
+{% if c6 == "eb7" %}
+<td  width="282" height="15">السابع</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>متوسط</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb8" %}
+<td  width="282" height="15">الثامن</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>متوسط</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "eb9" %}
+<td  width="282" height="15">التاسع</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>متوسط</a><a>&nbsp</a></td>
+{% endif %}
+
+{% if c6 == "sec-sc" %}
+<td  width="282" height="15">الاول ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "bacc1-sc" %}
+<td  width="282" height="15">الثاني ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "bacc1-l" %}
+<td  width="282" height="15">الثاني ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "sg" %}
+<td  width="282" height="15">الثالث ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "sv" %}
+<td  width="282" height="15">الثالث ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "se" %}
+<td  width="282" height="15">الثالث ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "lh" %}
+<td  width="282" height="15">الثالث ثانوي</td>
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+<a>&nbsp</a>
+<a></a>
+<a>اختصاص</a><a></a><a>..................</a>
+<a>نهاري/ليلي (2)</a><a>وان القسط</a><br>
+<a>الصافي المحدد للتعليم للطالب/ة الخارجي دون أي اضافات أخرى(7) يبلغ :(بالأرقام)</a>
+<a> {{ll6}} ل.ل. {{dd6}} $$</a><br>
+<a>(وبالأحرف) فقط</a>
+<a>{{tafl1}}&nbspليرة لبنانية + {{tafd1}}&nbsp دولار اميريكي</a><br><br>
+<a><u>ملاحظة</u></a>
+<a>ان قيمة القسط الصافي (7) المدون أعلاه هي نفس القيمة المصرح عنها لوزارة التربية والتعليم العالي.</a><br><br><br>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a><a></a>.......................في       &nbsp &nbsp &nbsp                   /       &nbsp &nbsp &nbsp                      /</a><a></a><br>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a>الختم والتوقيع(*)</a>
+<br><br><br><br><br><br>
+<table border="1">
+  <td align="center"><h4>الصفوف التي تابع ها/تها الطالب /ة خلال العامين السابقين (**)</h4></td><tr>
+  <td>
+    
+
+
+    <a size=10><input type="text" name="a1" disabled="True" size="12" value={{w7}} ></a> 
+    <a size=10>الصف</a>
+    
+    {% if c7 == "ps1" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="روضة أولى"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="روضة"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "ps2" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="روضة ثانية"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="روضة"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "ps3" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="روضة ثالثة"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="روضة"></a><a>&nbsp</a></a>
+    {% endif %}
+    
+    {% if c7 == "eb1" %}
+    <a width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="ألأول"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "eb2" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثاني"></a>
+    <td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+    
+    {% endif %}
+    {% if c7 == "eb3" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثالث"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+    
+    {% endif %}
+    {% if c7 == "eb4" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الرابع"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+    
+    {% endif %}
+    {% if c7 == "eb5" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الخامس"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+    
+    {% endif %}
+    {% if c7 == "eb6" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="السادس"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+    <a width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="السابع"></td>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="متوسط"></a><a>&nbsp</a></a>
+
+    {% endif %}
+    {% if c7 == "eb8" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثامن"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="متوسط"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "eb9" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="التاسع"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="متوسط"></a><a>&nbsp</a></a>
+    {% endif %}
+    
+    
+    {% if c7 == "sec-sc" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الاول ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "bacc1-sc" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثاني ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "bacc1-l" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثاني ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "sg" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثالث ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "sv" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثالث ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "se" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثالث ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% endif %}
+    {% if c7 == "lh" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value="الثالث ثانوي"></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    {% if c7 == "" %}
+    <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value=""></a>
+    <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value=""></a><a>&nbsp</a></a>
+
+    {% endif %}
+    
+
+    {% endif %}
+    
+
+      
+    
+
+
+
+    
+    
+    <a>الاختصاص</a><a><input type="text" name="a4" size="15" ></a></td><tr>
+
+
+    </td><tr>
+    
+      <td>
+    
+
+
+        <a size=10><input type="text" name="a1" disabled="True" size="12" value={{w8}} ></a> 
+        <a size=10>الصف</a>
+        
+        {% if c8 == "" %}
+        <a  width="282" height="15"><input type="text" name="n1" disabled="True" size="15" value=""></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n2" disabled="True" size="15" value=""></a><a>&nbsp</a></a>
+    
+        {% endif %}
+        
+    
+        {% if c8 == "ps1" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="روضة أولى"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="روضة"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "ps2" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="روضة ثانية"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="روضة"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "ps3" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="روضة ثالثة"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="روضة"></a><a>&nbsp</a></a>
+        {% endif %}
+        
+        {% if c8 == "eb1" %}
+        <a width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="ألأول"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "eb2" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثاني"></a>
+        <td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+        
+        {% endif %}
+        {% if c8 == "eb3" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثالث"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+        
+        {% endif %}
+        {% if c8 == "eb4" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الرابع"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+        
+        {% endif %}
+        {% if c8 == "eb5" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الخامس"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+        
+        {% endif %}
+        {% if c8 == "eb6" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="السادس"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ابتدائي"></a><a>&nbsp</a></a>
+        <a width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="السابع"></td>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="متوسط"></a><a>&nbsp</a></a>
+    
+        {% endif %}
+        {% if c8 == "eb8" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثامن"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="متوسط"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "eb9" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="التاسع"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="متوسط"></a><a>&nbsp</a></a>
+        {% endif %}
+        
+        {% if c8 == "sec-sc" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الاول ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "bacc1-sc" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثاني ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "bacc1-l" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثاني ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "sg" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثالث ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "sv" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثالث ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "se" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثالث ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+        {% endif %}
+        {% if c8 == "lh" %}
+        <a  width="282" height="15"><input type="text" name="n11" disabled="True" size="15" value="الثالث ثانوي"></a>
+        <a width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a><input type="text" name="n12" disabled="True" size="15" value="ثانوي"></a><a>&nbsp</a></a>
+    
+    
+        {% endif %}
+        
+    
+          
+        
+    
+    
+    
+        
+        
+        <a>الاختصاص</a><a><input type="text" name="a004" size="15"  ></a></td><tr>
+    
+    
+        </td><tr>
+        
+    </table>
+
+<br>
+<br>
+<table border="1">
+  <td><a> &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp </a><a><u>تعهد ولي أمر الطالب</u></a><br>
+  <a>أنا(5)........................................................................</a><br>
+  <a>أتعهد على مسؤوليتي بافادة /باعلام (2) المديرية العامة للأمن العام في حال ترك<br> ابني/ </a>
+
+  <a>ابنتي المدرسة (2) قبل أول شهر اذار من العام الدراسي الحالي وأن القسط (7) أعلاه </a>  
+  <a>هو المبلغ المدفوع للمدرسة.</a><br>
+  <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+  <a>........ في     &nbsp &nbsp&nbsp  /  &nbsp &nbsp&nbsp  /  &nbsp &nbsp&nbsp  20</a><br>
+  <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+
+<a>التوقيع:</a>
+</td>
+  <td>
+    <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+    <a>للمصادقة على التوقيع</a><br>
+    <a>رئيس......................................................(8)</a>
+    <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a><br>
+    <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+    <a>........ في  &nbsp &nbsp&nbsp    /   &nbsp &nbsp&nbsp /   &nbsp &nbsp&nbsp  20</a><br>
+
+    <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+
+    <a>الختم والتوقيع:</a>
+  </td>
+  
+
+</table>
+
+
+<a>(1) اسم وشهرة مدير المدرسة</a><br>
+<a>(2) تشطب الكلمة الغير مناسبة</a><br>
+<a>(3) رقم مستند الترخيص للمدرسة الخاصة وتاريخه</a><br>
+<a>(4) العنوان كاملا</a><br>
+<a>(5) رتبة واسم وشهرة ولي أمر الطالب (تعهد تحت طائلة أخذ الاجراءات التأديبية</a><br>
+<a>(6) تدون مرحلة التعليم (روضة-ابتدائي-متوسط - ثانوي)</a><br>
+<a>(7) تعتبر اضافات ولا تدرج ضمن القسط البدلات التالية: نقل-كتب-قرطاسية-تأمين-نشاطات اجتماعية-كمبيوتر... الخ(على عاتقي).</a><br>
+<a>(8) رئيس المكتب ,الدائرة أو المركز بالنسبة للعسكريين والموظفين المدنيين في الخدمة والتقاعد.</a><br>
+<a>(*) لا يشترط التوقيع للتعليم في الخارج , على أن يتم تع ,على أن يتم تعبئة الافادة بالمعلومات من قبل ولي أمر الطالب وعلى مسؤوليته الشخصية.</a><br>
+<a>(**) تعبأ وتوقع من قبل المدرسة اذا كان الطالب /ة يتابع دراسته / ها فيها.</a><br>
+<a>(**) تعبأ وتوقع من قبل ولي أمر الطالب / ة وعلى مسؤوليته الشخصية اذا كان الطالب / ة يتابع دراسته / ها في مدرسة أخرى.</a><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="no">
+    <button  onclick="window.print()"> طباعة  pdf </button>
+    <td><a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+    </div>
+    
+
+{% endblock work2 %}
+  
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+{% extends 'base1.html' %}
+
+{% block  work2 %}
+<body>
+name={{name}}
+    <h1> age={{age|filesizeformat}}</h1>
+  {% if name == 'ali' %}
+    <p> {{name}} صحيح </p>  
+    {% elif name == 'abbas' %}   
+        <p> {{name}} صحيح </p>  
+    {% else %} 
+      <p> غير موجود</p>
+  {% endif %}
+  
+  {% for x in name %}
+     <p>{{x}}</p>
+  {% endfor %}   
+
+</body>
+{% endblock work2 %}

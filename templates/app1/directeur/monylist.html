@@ -1,0 +1,101 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+ 
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأقساط المدرسية</title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+
+
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+  <p> العام الدراسي </p>
+  <select type="text" name="anne2031"> 
+    <option value={{a1}}>{{a1}}</option>
+    {% for x1 in annx %}
+     <option value={{x1.anne}}>{{x1.anne}}</option>
+    {% endfor %} 
+  </select>
+  <input type="submit" value="ابحث">
+  <br>
+</form>
+  
+<br>
+
+<table border="1" style="background-color: white";>
+  <td style="background-color:yellow";>  العام الدراسي</td>
+  <td style="background-color:yellow";>الصف</td>
+  <td style="background-color:yellow";>القسط L.L.</td>
+  <td style="background-color:yellow";>القسط$$</td>
+  <td>تفقيط لبناني</td>
+  <td>تفقيط دولار</td>
+
+  <td>  </td>
+  {% for rec1 in monycl %}
+  <form method="POST" action ="/app1/mony/monyupdate/{{rec1.id}}/{{rec1.anne}}">
+    {% csrf_token  %}
+  
+  <tr>
+    <td>{{rec1.anne}}</td>
+    <td>{{rec1.classe}}</td>
+    <td><input type="decimal" name="k1" maxlength=12 value={{rec1.amountll}}></td>
+    <td><input type="decimal" name="k2" maxlength=12 value={{rec1.amountdd}}></td>
+    <td>{{rec1.tl}}</td>
+    <td>{{rec1.td}}</td>
+
+    <td style="background-color:gray";> <input type="submit"  value=" حفظ القسط"></td>
+       
+  </tr> 
+      
+</form>
+
+  {% endfor %}
+
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+<p>
+ان وجدت لائحة فارغة فيجب فتح عام دراسي للجميع فيتم تحديد لائحة اقساط فارغة للصفوف
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct"  style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>  
+{% endblock work2 %}
+
+
+
+</body>
+</html>

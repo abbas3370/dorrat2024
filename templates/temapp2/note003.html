@@ -1,0 +1,15 @@
+{% extends 'base1.html' %}
+
+{% block work2 %}
+  {% for x in reco001 %}
+    <h1> {{x.tname}}</h1>  
+
+    <h1> photo</h1>  
+   
+   
+    <img src="{{x.timage.url}}" alt="" width="200px" >
+  
+    {% endfor %}
+
+
+{% endblock work2 %}

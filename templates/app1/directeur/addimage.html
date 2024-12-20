@@ -1,0 +1,106 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<script>
+  function previewFile() {
+    var preview = document.querySelector('img');
+    var file    = document.querySelector('input[name=pht]').files[0];
+    var reader  = new FileReader();
+  
+    reader.onloadend = function () {
+      preview.src = reader.result;
+    }
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "";
+    }
+  }
+  
+  
+
+
+</script>
+
+
+
+  <script>
+    function prevideo() {
+      var preview = document.querySelector('video');
+      var file    = document.querySelector('src="phv"').files[0];
+      var reader  = new FileReader();
+    
+      reader.onloadend = function () {
+        preview.src = reader.result;
+      }
+    
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        preview.src = "";
+      }
+    }
+    
+    </script>
+
+
+
+  <form   method="POST">
+  {% csrf_token  %}
+ <table>
+  <p>سجل صور جديد </p>
+  <tabel border="1">
+  <td><label> تاريخ اليوم:
+  <input type="date" name="date01"  ></label></td>
+  <td>
+  <label>أدخل صورة:
+  <input type="file" name="pht" onchange="previewFile()"><br>
+  <img src="" height="200" alt="">
+  </td>
+  </table>
+  
+<p>  <input type="submit" value="save"  ></p></td>
+    </table>
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/direct/directimage" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+ <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+{% endblock work2 %}
+  
+
+</body>
+</html>

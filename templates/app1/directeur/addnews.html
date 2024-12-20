@@ -1,0 +1,84 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<form   method="POST">
+  {% csrf_token  %}
+ <table>
+  <p>طالب جديد </p>
+  <tabel border="1">
+  <td><label>التاريخ
+  <input type="date" name="dat1"  ></label></td>
+  
+  <td>
+  <label>الخبـــر
+  
+
+  <textarea  name="news1" rows="4" cols="50"  ></textarea></label>
+</td>
+  
+  
+  <td><label> ملاحظة1
+  <input type="text" name="rem11"  required="True" ></label></td>
+  <td>
+  <label> ملاحظة2
+  <input type="text" name="rem21" required="True" ></label></td>
+    <tr> 
+  </table>
+    
+  <p>
+  </p><p>
+  </p>
+  <table>
+  <td>
+  
+<p>
+</p><p>
+</p> 
+<table>
+    <td>
+ 
+
+<p>  <input type="submit" value="save"  ></p></td>
+    </table>
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/eleve1/list" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+ <td><a href="/app1/eleve1/listnews#" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+{% endblock work2 %}
+  
+
+</body>
+</html>

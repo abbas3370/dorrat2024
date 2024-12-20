@@ -1,0 +1,96 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+   
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document  </title>
+
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ <p>  البحث باسم</p>
+  <p><input type="text" name="nom1" required="True"></p>
+  
+  <input type="submit" value="ابحث">
+  <br>
+</form>
+  
+<br>
+  
+<table border="1" style="background-color: white";>
+  <td>الكود</td>
+  <td>الاسم</td>
+  <td>الاب</td>
+  <td>الشهرة</td>
+  <td>الام</td>
+  <td>البلدة</td>
+  <td>تلفون</td>
+  <td>تاريخ الولادة</td>
+  <td>مسجل\ترك</td>
+  
+  {% for rec1 in rec %}
+  <tr>
+    <td><a href="update1/{{rec1.code}}">{{rec1.code}}</a></td>
+  
+    <td>{{rec1.nom}}</td>
+    <td>{{rec1.pere}}</td>
+    <td>{{rec1.famille}}</td>
+    <td>{{rec1.mere}}</td>
+    <td>{{rec1.city}}</td>
+    <td>{{rec1.tel}}</td>
+    <td>{{rec1.dat}}</td>
+    <td>{{rec1.quit}}</td>
+    <td><a href="del/{{rec1.code}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">حذف الطالب</a></td>  
+  
+  </tr>
+
+  {% endfor %}
+
+</table>
+<br>
+<br>
+<p>  </p>
+<p>
+<div class='editLink'>
+
+
+  <a href="add" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">طالب جديد </a>
+
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+</p>
+{% endblock work2 %}
+
+</body>
+</html>
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ <p>  البحث برمز المادة </p>
+  <p><input type="text" name="codema" required="True"></p>
+  <input type="submit" value="ابحث">
+  <br>
+</form>
+  
+<br>
+  
+<table border="1" style="background-color: white";>
+  <td>الصف</td>
+  <td>الشعبة</td>
+  <td>المادة</td>
+  <td>الاسم</td>
+  <td>الاب</td>
+  <td>الشهرة</td>
+  <td>العام</td>
+  <td>الشهر</td>
+  <td>العلامة القصوى</td>
+  <td>العلامة</td>
+  
+  
+  
+  {% for rec1 in rec %}
+  <tr>
+    <td>{{rec1.classe}}</td>
+    <td>{{rec1.section}}</td>
+    <td>{{rec1.matiere}}</td>
+    <td>{{rec1.nom}}</td>
+    <td>{{rec1.pere}}</td>
+    <td>{{rec1.famille}}</td>
+    <td>{{rec1.anne}}</td>
+    <td>{{rec1.mois}}</td>
+    <td>{{rec1.score}}</td>
+
+
+
+  </tr>
+
+  {% endfor %}
+
+</table>
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<p>
+  <a href="add" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">طالب جديد </a>
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+  
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

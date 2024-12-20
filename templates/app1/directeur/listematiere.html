@@ -1,0 +1,163 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+ 
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ادخال المواد التعليمية ورموزها  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    .tab td {
+      background-color: yellow;
+    }
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+
+
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+  <div class='tab'>
+
+  <table border="1">
+    
+    <td><p>الصف</p>
+   <select name="classe08">
+    
+    <option value={{c}} >{{c}}</option>
+    <option value="ps1">ps1</option>
+    <option value="ps2">ps2</option>
+    <option value="ps3">ps3</option>
+   
+   
+    <option value="eb1">eb1</option>
+   <option value="eb2">eb2</option>
+   <option value="eb3">eb3</option>
+   <option value="eb4">eb4</option>
+   <option value="eb5">eb5</option>
+   <option value="eb6">eb6</option>
+   <option value="eb7">eb7</option>
+   <option value="eb8">eb8</option>
+   <option value="eb9">eb9</option>
+   <option value="sec-sc">seconde-sc</option>
+   <option value="bacc1-sc">bacc1-sc</option>
+   <option value="bacc1-l">bacc1-l</option>
+   <option value="sg">sg</option>
+   <option value="sv">sv</option>
+   <option value="se">se</option>
+   <option value="lh">LH</option>
+
+ </select> </td>
+ <td>
+<p>الشعبة</p>
+<select name="section08">
+  <option value={{s}} >{{s}}</option>
+
+  <option value="A">A</option>
+ <option value="B">B</option>
+ <option value="C">C</option>
+ <option value="D">D</option>
+ <option value="E">E</option> </td>
+<td>
+  <p>   البحث باسم المادة</p>
+  <input type="text" name="nom1" value={{m}}></td>
+  <td><p>   البحث بالعام الدراسي</p>
+     <select type="text" name="anne2031"> 
+        <option value={{a}} >{{a}}</option>
+        {% for anx in anrec %}
+          <option value={{anx.anne}}>{{anx.anne}}</option>
+         {% endfor %} </select>
+     </td>
+    </td><td>&nbsp &nbsp &nbsp &nbsp&nbsp  &nbsp &nbsp</td>
+ 
+  </td><td>&nbsp &nbsp &nbsp &nbsp&nbsp  &nbsp &nbsp</td>
+ 
+
+  <td>
+  <input type="submit" value="ابحث">
+ 
+
+  <div class="no">
+    <td><button  onclick="window.print()"> طباعة  pdf </button></td>
+    <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+    </div>
+
+</table>
+</div>
+</form>
+{% if a != "" and a != None  and s != "" and s != None%}
+<table border="1" style="background-color: white";>
+
+<td ><a href="autocodemat/{{a}}/{{s}}">  حذف كل المواد وانشاء كودات اتوماتيكية للعام المحدد والشعبة المحددة فقط</a></td>
+</table>
+{% endif %}
+<br>
+
+<table border="1" style="background-color: white";>
+  <td>الكود</td>
+  <td>اسم المادة</td>
+  <td>الصف</td>
+  <td>الشعبة</td>
+  <td>العام الدراسي</td>
+  <td>العلامة القصوى</td>
+  {% for rec1 in rec %}
+  <form  method="POST" action ="/app1/direct/list-m/rescore/{{rec1.id}}"> {% csrf_token  %}  
+  <tr>
+    <td><a href="updatematiere/{{rec1.code}}">{{rec1.code}}</a></td>
+  
+    <td>{{rec1.nommatiere}}</td>
+    <td>{{rec1.classe}}</td>
+    <td>{{rec1.section}}</td>
+    <td>{{rec1.anne}}</td>
+    <td><input type="number" name="sc0021" value={{rec1.score}} size=4></td>
+    <td><a href="del_m/{{rec1.code}}" style="background-color: yellow " ;>حذف المادة</a></td>  
+    <td><input type="submit" value="حفظ العلامة القصوى"></td>
+    </tr>
+
+  </form>
+    {% endfor %}
+
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+<p>
+  <a href="addmatiere"  style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">مادة جديدة </a>
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct"  style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>  
+{% endblock work2 %}
+
+
+
+</body>
+</html>

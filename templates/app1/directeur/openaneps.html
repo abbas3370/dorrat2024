@@ -1,0 +1,74 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فتح عام دراسي جديد للروضات </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLinkfinale a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ <p>فتح عام دراسي لجميع طلاب الروضات وانشاء بطاقات العلامات </p>
+ 
+  <p>  العام الدراســـي</p>
+   
+    <select type= "text" name="anne2"  >
+       {% for xaxa in rec %}
+          <option value="{{xaxa.anne}}" > {{xaxa.anne}} </option>
+        {% endfor %}
+     </select>
+     <br>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+
+  <input type="submit" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" value="سجل الكل  في العام المذكور">
+  <br>
+  </div>
+</form>
+<br>
+<br>
+<div class='editLinkfinale'>
+
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+</body>
+</html>  
+{% endblock work2 %}
+
+
+
+

@@ -1,0 +1,323 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    table ,td{
+       border:1px solid  black;
+       border-collapse: collapse;
+    }
+
+.#brd , td ,th { border: none; bordercolor=white;}    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+
+ input {
+ 
+  border: none;
+  outline:none;
+ }
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+
+<h4 align="center"> جانب تعاونية موظفي الدولة  </h4>
+<h4 align="center"> مصلحة الشؤون الاجتماعية -دائرة المنح والمساعدات الاجتماعية</h4>
+<h2>    &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <u> الموضوع:</u><span style="font-size: 90%"">افادة مدرسية/جامعية </span>  </h2>
+
+    {% for sco in scho %}
+
+
+    <a>تفيد ادارة &#x2611;  مدرسة &#x2610; جامعة  &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp{{sco.name}}&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp     المرخص لها بموجب </a><br><br>
+<a> المرسوم رقم &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp{{sco.tarhis}}
+    &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   تاريخ  &nbsp 
+     &nbsp{{sco.rem1}} &nbsp &nbsp &nbsp &nbsp  &nbsp&nbsp   الكائنة في:  &nbsp{{sco.city}}&nbsp &nbsp &nbsp </a><br><br>
+<a> محافظة  &nbsp &nbsp &nbsp {{sco.mohafaza}}  &nbsp &nbsp &nbsp     قضاء &nbsp &nbsp &nbsp {{sco.kadaa}} &nbsp &nbsp &nbsp     هاتف &nbsp &nbsp  &nbsp &nbsp{{sco.tel}}&nbsp &nbsp  &nbsp &nbsp  والمصنفة وفقا للتالي</a><br><br>
+
+
+<table border="1"> <td style="background:gray; text-align:justify;" height="15"><a> نوع التعليم &nbsp &nbsp &nbsp &nbsp &nbsp  
+      &nbsp   &nbsp &nbsp  &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    التصنيف  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+     &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp  &nbsp &nbsp &nbsp  &nbsp   &nbsp  &nbsp &nbsp &nbsp &nbsp</a></td>
+</table>
+<a>  &#x2611; التعليم الاكاديمي   &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp(مدرسي &#x2611; جامعي &#x2610;) &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
+      &nbsp 
+    
+    &#x2611;خاص غير مجاني 
+</a><br>
+
+<a>  &#x2610; التعليم المهني والتقني &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp 
+    &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp 
+    &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &#x2610; خاص مجاني </a><br>
+<a> &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
+     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
+     &nbsp &nbsp &nbsp &#x2610;رسمي
+</a>
+<br>
+<a>بأن الطالب : &nbsp &nbsp&nbsp  &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp{{w3}}  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp{{w2}} &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp{{w1}} &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp                تاريخ الولادة :{{nais|date:"d-m-Y"}} </a><br>
+<a>&nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp 
+    &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp الاسم     &nbsp &nbsp &nbsp &nbsp 
+    &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp الأب  &nbsp &nbsp &nbsp &nbsp 
+    &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp الشهرة</a><br><br>
+
+<a> قد أنهى  &#x2611;&nbsp &nbsp  &nbsp &nbsp  يتابع  &#x2610;&nbsp &nbsp &nbsp &nbsp 
+     العام الدراسي &nbsp{{w6}} &nbsp &nbsp &nbsp &nbsp 
+    وفقا للمعلومات التالية: </a><br><br>
+
+
+
+<table border="1">
+<td rowspan="4" style="background:gray; writing-mode:vertical-rl";> خاص بالمدارس</td>
+<td colspan="4" align="center" style="background:gray";>مصلحة التعليم الخاص</td>
+<td rowspan="2" style="background:gray";>رقمه في سجل المدرسة</td>
+<td colspan="3" align="center" style="background:gray";>الوضع الدراسي</td>
+<td rowspan="2" style="background:gray";>قيمة القسط السنوي المقبوض (بالليرة اللبنانية والدولار)</td>
+<tr>
+
+    <td style="background:gray";>رقم اللائحة</td>
+<td style="background:gray";>رقم المدرسة</td>
+<td style="background:gray";>رقم المدرسة في البحوث</td>
+<td style="background:gray";>رقم التلميذ</td>
+<td style="background:gray";>الصف</td>
+<td style="background:gray";>مرحلة التعليم</td>
+<td style="background:gray";>القسم (نهاري/ليلى)</td><tr>
+<td rowspan="2">2840</td>
+
+<td rowspan="2">{{sco.numeducation}}</td>
+<td rowspan="2">{{sco.numeducation}}</td>
+<td rowspan="2"><input type="text"  name="num1" size="3" ></td>
+<td rowspan="2"><input type="text"  name="num2" size="3"></td>
+
+{% if c6 == "ps1" %}
+<td rowspan="2" width="100" height="15"> روضة أولى أساسي فرنسي</td>
+<td rowspan="2" width="100" height="15">روضات</td>
+
+{% endif %}
+{% if c6 == "ps2" %}
+<td rowspan="2" width="282" height="15">روضة ثانية أساسي فرنسي</td>
+<td  rowspan="2" width="100" height="15">روضات</td>
+
+{% endif %}
+{% if c6 == "ps3" %}
+<td rowspan="2" width="100" height="15">روضة ثالثة أساسي فرنسي</td>
+<td  rowspan="2"width="100" height="15">روضات</td>
+
+{% endif %}
+
+{% if c6 == "eb1" %}
+<td rowspan="2" width="282" height="15">ألأول أساسي فرنسي</td>
+<td rowspan="2" width="100" height="15">الابتدائية</td>
+{% endif %}
+{% if c6 == "eb2" %}
+<td rowspan="2" width="100" height="15">الثاني أساسي فرنسي</td>
+<td rowspan="2" width="100" height="15">الابتدائية</td>
+
+{% endif %}
+{% if c6 == "eb3" %}
+<td rowspan="2" width="100" height="15">الثالث أساسي فرنسي</td>
+<td  rowspan="2" width="100" height="15">الابتدائية</td>
+
+{% endif %}
+{% if c6 == "eb4" %}
+<td  width="100" height="15">الصف الحالي للطالب:الرابع</td>
+<td  rowspan="2" width="100" height="15">الابتدائية</td>
+
+{% endif %}
+{% if c6 == "eb5" %}
+<td rowspan="2" width="100" height="15">الخامس أساسي فرنسي</td>
+<td  rowspan="2" width="100" height="15">الابتدائية</td>
+
+{% endif %}
+{% if c6 == "eb6" %}
+<td rowspan="2" width="100" height="15">السادس أساسي فرنسي</td>
+<td rowspan="2" width="100" height="15">الابتدائية</td>
+
+{% endif %}
+
+{% if c6 == "eb7" %}
+<td rowspan="2" width="100" height="15">السابع أساسي فرنسي</td>
+<td rowspan="2" width="100" height="15">المتوسطة</td>
+
+{% endif %}
+{% if c6 == "eb8" %}
+<td  width="100" height="15">الثامن</td>
+<td rowspan="2" width="100" height="15">المتوسطة</td>
+
+{% endif %}
+{% if c6 == "eb9" %}
+<td rowspan="2" width="100" height="15">التاسع أساسي فرنسي</td>
+<td  rowspan="2" width="100" height="15">المتوسطة</td>
+
+{% endif %}
+
+
+{% if c6 == "sec-sc" %}
+<td rowspan="2" width="100" height="15"> اول ثانوي فرنسي</td>
+<td  rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+{% if c6 == "bacc1-sc" %}
+<td rowspan="2" width="100" height="15">    ثاني ثانوي  فرنسي</td>
+<td rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+{% if c6 == "bacc1-l" %}
+<td rowspan="2" width="100" height="15"> الثاني ثانوي فرنسي</td>
+<td  rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+{% if c6 == "sg" %}
+<td  width="100" height="15"> الثالث ثانوي  فرنسي</td>
+<td  rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+{% if c6 == "sv" %}
+<td rowspan="2" width="100" height="15"> الثالث ثانوي  فرنسي</td>
+<td rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+{% if c6 == "se" %}
+<td  width="100" height="15">الثالث ثانوي  فرنسي</td>
+<td rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+{% if c6 == "lh" %}
+<td rowspan="2" width="100" height="15">الثالث ثانوي  فرنسي</td>
+<td  rowspan="2" width="100" height="15">الثانوية</td>
+
+{% endif %}
+
+
+
+
+<td rowspan="2">نهاري</td>
+<td align="center">{{ll6}} ل.ل.</td><tr>
+<td align="center"> {{dd6}} $$</td>
+<tr>
+<td colspan="10">{{tafl1}} &nbspليرة لبنانية فقط لا غير</td><tr>
+<td colspan="10">{{tafd1}}&nbsp دولار اميريكي فقط لا غير</td><tr>
+    
+</table>
+
+<table border="1">
+    <td rowspan="3" style="background:gray; writing-mode:vertical-rl";>خاص بالجامعات</td>
+    <td colspan="3" align="center" style="background:gray ";>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp&nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp المستوى الجامعي&nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+    <td rowspan="2" style="background:gray";>&nbsp &nbsp  &nbsp &nbsp &nbspرقمه في سجل الجامعة #ID</td>
+    <td rowspan="2" style="background:gray";>&nbsp &nbsp  &nbsp &nbsp &nbspقيمة القسط المقبوض (بالليرة اللبنانية)&nbsp &nbsp  &nbsp &nbsp &nbsp</td>
+     <tr>
+    <td style="background:gray";>الاختصاص</td>
+    <td style="background:gray";>نوع الشهادة</td>
+    <td style="background:gray";>السنة</td>
+    <tr>
+        <td height="30"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        
+        <tr>
+        <tr>
+            <td height="30" colspan="6">(........................................................................
+                ....................................................................................
+                ................................................................................فقط لا غير)</td>
+
+        </table>
+<br>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    تاريخ</a><br>
+    <a>&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    
+        &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+        الاسم والخاتم والتوقيع</a>
+    
+<br>
+<br>
+<br>
+
+        
+
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp
+
+    &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+    &nbsp &nbsp  
+</a>
+<a style="background:gray";><u>ملاحظة للمدارس والمهنيات فقط</u>: </a><br>
+<a>&nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+     &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp  &nbsp &nbsp &nbsp    &nbsp &nbsp &nbsp &nbsp
+     &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    
+    &nbsp &nbsp  &nbsp &nbsp &nbsp    </a>
+
+<a style="background:gray";>يجب ضم لائحة عن الاقساط للعام الدراسي موضوع الافادة </a>
+
+
+
+
+
+
+<div class="no">
+  <button  onclick="window.print()"> طباعة  pdf </button>
+  <td><a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+  
+
+  
+{% endfor %}
+{% endblock work2 %}
+</body>
+
+</html>

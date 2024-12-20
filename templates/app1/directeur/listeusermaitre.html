@@ -1,0 +1,93 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الاساتذة المستخدمين للمولد  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ 
+     <br>
+  <h3>الكود الذي بدأ برقم 1 هو كود المدير</h3>   
+    <br>
+  <p>    لبحث باسم و؟ لاظهار الكل </p>
+  <p><input type="text" name="nom1" ></p>
+  
+  <input type="submit" value="ابحث">
+  <br>
+  
+<br>
+<form method="POST">
+  {% csrf_token  %}
+  
+<table border="1" style="background-color: white";>
+  <td>الكود</td>
+  <td>الاسم</td>
+  <td>كود اخر مادة دخل اليها</td>
+  <td>الشهر</td>
+  
+  {% for rec1 in rec %}
+  <tr>
+    
+    <td><a href="updtusermaitre/{{rec1.user}}">{{rec1.user}}</a></td>
+  
+    <td>{{rec1.name}}
+    <td>{{rec1.f1}}</td>
+    <td>{{rec1.f2}}</td>
+    <td><a href="delmaitreuser/{{rec1.user}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">حذف الاستاذ</a></td>  
+  {% endfor %}  
+</table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<p>
+  <a href="addusermaitre" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">استاذ جديد </a>
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+</form>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

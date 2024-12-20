@@ -1,0 +1,135 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<script>
+  function myFunction() {
+    alert("Hello! I am an alert box!");
+  }
+  </script>
+  
+<form  action ="updaterecord/{{menber.code}}" method="POST">
+  {% csrf_token  %}
+ <table>
+  <p>تعديل الطالب </p>
+  
+  <p> كود التلميد
+  <input type="text" name="code"  value="{{menber.code}}"></p>
+
+
+  
+  <p>اسم التلميد
+  <input type="text" name="nom" required="True" value="{{menber.nom}}"></p>
+
+
+    <p> اسم الاب
+  <input type="text" name="pere"  required="True" value="{{menber.pere}}"></p>
+
+  
+  <p> الشهرة 
+  <input type="text" name="famille" required="True" value="{{menber.famille}}"></p>
+  
+
+ <p>اسم الام
+  <input type="text" name="mere"  required="True" value="{{menber.mere}}"></p>
+
+  
+  <p>البلدة 
+  <input type="text" name="city" required="True"  value="{{menber.city}}"></p>
+
+  
+
+  <p>تلفون 
+ <input type="text" name="tel" required="True" value="{{menber.tel}}"></p>
+
+
+ <p> مكان الولادة
+  <input type="text" name="lieu1" required="True" value="{{menber.lieu}}" ></p>
+  <p> رقم السجل
+    <input type="text" name="segel1" required="True" value="{{menber.segel}}" ></p>
+
+
+
+
+  <label> الجنس <select type="text" name="rem11" required="True" ></label>
+     <option value={{menber.rem1}}>{{menber.rem1}}</option>
+    <option value="ذكر">ذكر</option>
+    <option value="أنثى">أنثى</option></select>
+    <br>
+   <p> كود الأب<input type="text" name="rem21" required="True" value="{{menber.rem2}}"></p>
+    <p> رقم1 
+ <input type="number" name="num11" required="True" value="{{menber.num1}}"></p>
+      <p> رقم 2
+ <input type="number" name="num21" required="True" value="{{menber.num2}}" ></p>
+                             
+
+
+  
+
+  <p> تاريخ الولادة
+    : {{menber.dat}}   
+    
+    <input type="date" name="daten" required="True"  value={{menber.dat}}>  </p>
+
+    {% if menber.quit == 'مسجل' %}  
+  
+    <p> <select type= "text" name="quit" value="None" style="display:flow-root">
+      <option value="مسجل" >  مسجل </option>
+      <option value="ترك" >ترك </option>
+    </select></p>
+    {% else %}
+    <p>  <select type= "text" name="quit" value="None" style="display:flow-root">
+      <option value="ترك" >ترك </option>
+      <option value="مسجل" > مسجل  </option>
+    </select></p>
+  
+  {% endif %}
+  
+  
+ </table>
+ 
+
+<p>  <input type="submit" value="save" ></p>
+
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/eleve1/list" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+  
+{% endblock work2 %}
+
+
+</body>
+</html>

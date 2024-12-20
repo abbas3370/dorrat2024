@@ -1,0 +1,164 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اصدار لائحة بالاقساط  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+   #asas td {
+     background-color:greenyellow;
+     width=20px;
+     height=10px;
+    }
+   #asa{
+        
+    background-color: silver;
+   }
+  label {
+    background-color: silver;
+    color:blue;
+  }      
+  #swe {
+    width=50;
+  }
+
+
+    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+ input {
+ 
+  border: none;
+  outline:none;
+ }
+
+
+
+
+
+</style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+
+
+{% block work2 %}
+
+
+<table  border="0" style =" background-color: white";>
+  {% for i in sc %}  
+ 
+  <div><td colspan="4" style="background-color:yellow";><img src="/static/image/logo1.jpg" alt="c:\pictures\logo1.jpg"  style=" border:2px  solid #4d694e"  width="100" height="50"><a>&nbsp &nbsp &nbsp</a>  {{i.name}}     </td> </div>
+  <tr>
+       
+        <td><a>المحافظة:</a><a>{{i.mohafaza}}</a><br><a>القضاء:</a><a>{{i.kadaa}}</a><br><a>المحلة:</a><a>{{i.city}}</a><br></td><tr>
+        <td><a><u>تلفون</u>:</a><a><u>{{i.tel}}</u></a></td>
+        <tr><tr><tr><tr><tr><tr>
+       <td align="center"> &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+        &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp<u>                                     لائحــــة بالأقســاط المدرســـيّة للعام الدراسي : {{x61}}     </u></td>   
+    
+ </table>
+    <br><br>   
+<a>تفيد ادارة &nbsp &nbsp &nbsp {{i.name}}</a><a>&nbsp &nbsp &nbsp</a><a>أن الأقساط المدرسية للعام  :</a><a>{{x61}}</a><a>&nbsp &nbsp</a>
+<a>هي على الشكل التالي:</a>
+
+{% endfor %}
+<br>
+<br>
+
+<table border="1">
+  <td style="background:yellow";>المرحلة</td><td style="background:yellow"; align="center">القسط بالليرة اللبنانية</td><td  style="background:yellow";align="center">القسط بالدولار الاميريكي</td><tr>
+
+{% for ak in akm %}
+    
+{% if ak.classe == "ps3" %}
+<td rowspan="2">روضة</td><td align="center">{{ak.amountll}} <a>ل.ل.</a></td> <td align="center">{{ak.amountdd}} <a>$.$.</a></td><tr>
+<td align="center">{{ak.tl}} </td><td align="center">{{ak.td}} </td>
+<tr>{% endif %}
+
+{% if ak.classe == "eb1" %}
+<td rowspan="2">ابتدائي</td><td align="center">{{ak.amountll}} <a>ل.ل.</a></td> <td align="center">{{ak.amountdd}} <a>$.$.</a></td><tr>
+  <td align="center">{{ak.tl}} </td><td align="center">{{ak.td}} </td>
+  <tr>{% endif %}
+  
+{% if ak.classe == "eb8" %}
+<td rowspan="2">متوسط</td><td align="center">{{ak.amountll}} <a>ل.ل.</a></td> <td align="center">{{ak.amountdd}} <a>$.$.</a></td><tr>
+  <td align="center">{{ak.tl}} </td><td align="center">{{ak.td}} </td>
+  <tr>{% endif %}
+    {% if ak.classe == "sg" %}
+    <td rowspan="2">ثانوي</td><td align="center">{{ak.amountll}} <a>ل.ل.</a></td> <td align="center">{{ak.amountdd}} <a>$.$.</a></td><tr>
+      <td align="center">{{ak.tl}} </td><td align="center">{{ak.td}} </td>
+      <tr>{% endif %}
+      
+
+{% endfor %}
+</table>
+
+<br>
+<br>
+
+<a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+
+  &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a><a>الخاتـم والتوقيــع:</a>
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+<button onclick="window.print()"> طباعة  pdf </button>
+<br>
+<div class="no">
+<a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a>
+</div>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

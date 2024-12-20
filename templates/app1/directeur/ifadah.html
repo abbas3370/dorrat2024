@@ -1,0 +1,198 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+{% block work2 %}
+<form method="POST">
+  {% csrf_token  %}
+ 
+     <br>
+     
+    <br>
+  <p>    البحث باسم الاب والشهرة</p>
+  <table border="1"><td style="background-color:yellow";>
+  <p><label> جزء من اسم الاب<input type="text" name="nomp1" ></label></p>
+  </td><td style="background-color:yellow";><p><label type="background-color="white"> جزء من الشهرة<input type="text" name="nomf1" ></label></p></td>
+  <td style="background-color:yellow";> <label> العام الدراسي </label>
+    <select type="text" name="anne2031"> 
+      <option value={{a1}}>{{a1}}</option>
+      <option value={{x1}}>{{x1}}</option>
+
+     {% for rec101 in recann %}
+       <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+     {% endfor %}
+    </select> </td>
+    <td style="background-color:yellow";> <label> العام الدراسي </label>
+      <select type="text" name="anne2032"> 
+        <option value={{a2}}>{{a2}}</option>
+        <option value={{x1}}>{{x1}}</option>
+
+       {% for rec101 in recann %}
+         <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+       {% endfor %}
+      </select> </td>
+      <td style="background-color:yellow";> <label> العام الدراسي </label>
+        <select type="text" name="anne2033"> 
+          <option value={{a3}}>{{a3}}</option>
+          <option value={{x1}}>{{x1}}</option>
+
+         {% for rec101 in recann %}
+           <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+         {% endfor %}
+        </select> </td>
+   
+  <td style="background-color:green";><input type="submit" value="ابحث"></td>
+      </form>
+  <br>
+  
+<br>
+  
+<table border="1" style="background-color: white";>
+  <td>الكود</td>
+  <td>الاسم</td>
+  <td>الاب</td>
+  <td>الشهرة</td>
+  <td>الام</td>
+  <td>البلدة</td>
+  <td>تلفون</td>
+  <td>تاريخ الولادة</td>
+  <td> محل الولادة </td>
+  <td>رقم السجل </td>
+  <td>الجنس </td>
+  <td>كود الأب </td>
+  <td> رقم 1 </td>
+  <td>رقم 2 </td>
+  <td>مسجل\ترك</td>
+  <td colspan="8">العام/الصف/ القسط ل.ل./ القسط  د.أ.</td>
+  {% for rec1 in rec %}
+  <form method="POST">
+    {% csrf_token  %}
+  
+  <tr>
+    <td>{{rec1.code}}</td>
+    <td>{{rec1.nom}}
+      <td>{{rec1.pere}}</td>
+    <td>{{rec1.famille}}</td>
+    <td>{{rec1.mere}}</td>
+    <td>{{rec1.city}}</td>
+    <td>{{rec1.tel}}</td>
+    <td>{{rec1.dat}}</td>
+    <td>{{rec1.lieu}}</td>
+    <td>{{rec1.segel}}</td>
+    <td>{{rec1.rem1}}</td>
+    <td>{{rec1.rem2}}</td>
+    <td>{{rec1.num1}}</td>
+    <td>{{rec1.num2}}</td>
+
+    <td>{{rec1.quit}}</td>
+
+     {% for cllx1 in clx %}
+       {% if cllx1.code1 == rec1.code %}
+         {% if cllx1.anne1 == a1 %}
+            <td>{{a1}}</td>
+            
+            <td> <input type="text" name="c1" disabled="True" value={{cllx1.classe1}} size=3> </td>  
+           {% for dldl in dl %}
+             {% if dldl.classe == cllx1.classe1 %}
+             <td> <input type="decimal" name="lll" disabled="True" value={{dldl.amountll}} size=7> </td>
+             
+             <td> <input type="decimal" name="ddd" disabled="True" value={{dldl.amountdd}} size=7> </td>
+
+             {% endif %}
+           {% endfor %}
+          {% endif %}   
+       {% endif %}   
+     {% endfor %}
+    
+    
+    
+     
+     <td> {% for cllx1 in clx %}
+      {% if cllx1.code1 == rec1.code %}
+       {% if cllx1.anne1 == a2 %}
+          {{a2}}  :
+           <td> <input type="text" name="c2" disabled="True" value={{cllx1.classe1}} size=3> </td>
+
+        {% endif %}   
+      {% endif %}   
+    {% endfor %}</td>
+    
+    
+    <td>{% for cllx1 in clx %}
+      {% if cllx1.code1 == rec1.code %}
+       {% if cllx1.anne1 == a3 %}
+       {{a3}} :      
+       
+       <td> <input type="text" name="c3" disabled="True" value={{cllx1.classe1}} size=3> </td>
+        {% endif %} 
+      
+      {% endif %}   
+    {% endfor %}<td>
+    {% if a1 != None and a1 != "" and a1 != "None" %}  
+     <td><a href="callmony/{{rec1.code}}/{{rec1.nom}}/{{rec1.pere}}/{{rec1.famille}}/{{rec1.mere}}/{{a1}}/{{a2}}/{{a3}}">ملحق ج</a></td>  
+     <td><a href="callmonyz/{{rec1.code}}/{{rec1.nom}}/{{rec1.pere}}/{{rec1.famille}}/{{rec1.mere}}/{{a1}}/{{a2}}/{{a3}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">ملحق ز</a></td> 
+     <td><a href="callmonyt/{{rec1.code}}/{{rec1.nom}}/{{rec1.pere}}/{{rec1.famille}}/{{rec1.mere}}/{{a1}}/{{a2}}/{{a3}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">تعاونية</a></td> 
+     <td><a href="callmonyd/{{rec1.rem2}}/{{rec1.code}}/{{rec1.nom}}/{{rec1.pere}}/{{rec1.famille}}/{{rec1.mere}}/{{a1}}/{{a2}}/{{a3}}" style="background-color: yellow;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">أمن داخلي</a></td> 
+     <td><a href="callmonyG/{{rec1.code}}/{{rec1.nom}}/{{rec1.pere}}/{{rec1.famille}}/{{rec1.mere}}/{{a1}}/{{a2}}/{{a3}}">أمن عام</a></td>  
+     <td><a href="callmonycha/{{rec1.code}}/{{rec1.nom}}/{{rec1.pere}}/{{rec1.famille}}/{{rec1.mere}}/{{a1}}/{{a2}}/{{a3}}">شركة عامة</a></td>  
+     <td><a href="listaksat/{{a1}}/{{a2}}/{{a3}}">لائحة اقساط</a></td>  
+
+    {% endif %}
+  
+   {% endfor %}  
+</table>
+</form>
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<p>
+  
+</p>
+<br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+</div>
+
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

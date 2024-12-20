@@ -1,0 +1,429 @@
+<!DOCTYPE html >
+<html dir="rtl",lang="en">
+  
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اصدار بطاقة علامة طالب محدد  </title>
+
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+    .editLi a {
+      color: #FFFFFF;
+      text-decoration: none;
+      }  
+   #asas td {
+     background-color:greenyellow;
+     width=20px;
+     height=10px;
+    }
+   #asa{
+        
+    background-color: silver;
+   }
+  label {
+    background-color: silver;
+    color:blue;
+  }      
+  #swe {
+    width=50;
+  }
+
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+  
+
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+  {% extends 'base01.html' %}
+
+
+
+{% block work2 %}
+
+<form method="POST"  >
+  {% csrf_token  %}
+     
+   
+  <table class="no" border="1" style="background-color: white";>
+   <td><label> :كود الطالب<input type="text" name="code2030"></label></td>
+    <td> <label> العام الدراسي </label>
+         <select type="text" name="anne2030"> 
+          <option value={{x1}}>{{x1}}</option>
+
+          {% for rec101 in recann %}
+            <option value={{rec101.anne}}>{{rec101.anne}} </option> 
+          {% endfor %}
+         </select> </td>
+    <td style="background-color:yellow";> <input type="submit" value="اصدار العلامة" ><td>
+</table>
+  </form>  
+  
+<br>
+{% load static %}
+
+  {% for rec1 in reco %}
+  
+  <form method="POST" >
+    {% csrf_token  %}
+    
+  
+    {% if rec1.mois == "sem1" %}
+     <table border="1" style =" background-color: white";>
+       <td colspan="4" style="background-color:yellow";><img src="{% static 'image/logo1.jpg' %}"   style=" border:2px  solid #4d694e"  width="100" height="50">   بطاقة العلامات المدرســـيّة       </td> 
+      
+       <tr>
+        <td>   اسم الطالب: {{rec1.nom1}} {{rec1.pere1}} {{rec1.famille1}}</td><td> </td><td> الصف: {{rec1.classe1}} والشعبة :{{rec1.section1}}</td>
+         <td>                                           العام الدراسي :{{rec1.anne1}}         .                                           </td>   
+        {% endif %}
+    
+    {% if rec1.mois == "sem1" %}
+         
+  <table border="3" style="background-color: white";>
+    <div id="asa" classe="c1" >
+    <td style="background-color:yellow";>الشهر</td>
+    {% if ascmat != 0 %}
+    <td style="background-color:yellow";>math/{{ascmat}}</td>
+    {% endif %}
+    {% if ascphy != 0 %}
+  
+    <td style="background-color:yellow";>phys/{{ascphy}}</td>
+    {% endif %}
+    {% if ascchi != 0 %}
+      
+    <td style="background-color:yellow";>chimie/{{ascchi}}</td>
+    {% endif %}
+    {% if  ascbio != 0 %}
+        
+    <td style="background-color:yellow";>bio/{{ascbio}}</td>
+    {% endif %}
+    {% if  ascara1 != 0 %}
+        
+    <td style="background-color:yellow";>تواصل كتابي/{{ascara1}}</td>
+    {% endif %}
+    {% if  ascara2 != 0 %}
+        
+    <td style="background-color:yellow";>تواصل شفهي/{{ascara2}}</td>
+    {% endif %}
+    {% if  ascara2 != 0 %}
+        
+    <td style="background-color:yellow";>القواعد والاملاء/{{ascara3}}</td>
+    {% endif %}
+    {% if  ascfra1 != 0 %}
+        
+    <td style="background-color:yellow";>orale/{{ascfra1}}</td>
+    {% endif %}
+    {% if ascfra2 != 0 %}
+        
+    <td style="background-color:yellow";>ecrite/{{ascfra2}}</td>
+    {% endif %}
+    {% if ascfra3 != 0 %}
+        
+    <td style="background-color:yellow";>g+dicte/{{ascfra3}}</td>
+    {% endif %}
+    {% if asceng != 0 %}
+        
+    <td style="background-color:yellow";>eng/{{asceng}}</td>
+    {% endif %}
+
+    {% if  ascphi != 0 %}
+        
+    <td style="background-color:yellow";>فلسفة/{{ascphi}}</td>
+    {% endif %}
+    {% if  asceco != 0 %}
+        
+    <td style="background-color:yellow";>اقتصاد/{{asceco}}</td>orale
+    {% endif %}
+    {% if  ascsoc != 0 %}
+  
+    <td style="background-color:yellow";>اجتماع/{{ascsoc}}</td>
+    {% endif %}
+    {% if  aschis != 0 %}
+        
+    <td style="background-color:yellow";>تاريخ/{{aschis}}</td>
+    {% endif %}
+    {% if  ascgeo != 0 %}
+        
+    <td style="background-color:yellow";>جغرافيا/{{ascgeo}}</td>
+    {% endif %}
+    {% if  ascciv != 0 %}
+        
+    <td style="background-color:yellow";>تنشئة/{{ascciv}}</td>
+    {% endif %}
+    {% if  ascart != 0 %}
+        
+    <td style="background-color:yellow";>فنون/{{ascart}}</td>
+    {% endif %}
+    {% if  ascrel != 0 %}
+        
+    <td style="background-color:yellow";>تربية دينية/{{ascrel}}</td>
+    {% endif %}
+    {% if  ascinf != 0 %}
+              
+    <td style="background-color:yellow";>كمبيوتر/{{ascinf}}</td>
+    {% endif %}
+    
+    {% if  ascspo != 0 %}
+              
+    <td style="background-color:yellow";> رياضة/{{ascspo}}</td>
+    {% endif %}
+    
+  
+    <td> المجموع العام/{{somt}} </td>
+    <td> المجموع/20 </td>
+    <td> النتيجة </td>
+  
+     <td  > الدرجة </td>
+  
+  <tr>
+  
+    {% endif %}
+    {% if rec1.mois != "moysem" and rec1.mois != "moyexa" and rec1.mois != "myt" %}
+    <td style="background-color:yellow";>{{rec1.mois}}</td>
+    {% if ascmat != 0 %}
+    <td>{{rec1.math}} </td>
+    {% endif %}
+    {% if  ascphy != 0 %}
+  
+    <td>{{rec1.physique}}</td>
+    {% endif %}
+    {% if  ascchi != 0 %}
+  
+    <td>{{rec1.chimie}} </td>
+    {% endif %}
+    {% if  ascbio != 0 %}
+  
+    <td>{{rec1.bio}}</td>
+    {% endif %}
+    {% if  ascara1 != 0 %}
+  
+    <td>{{rec1.arab1}}</td>
+    {% endif %}
+    {% if  ascara2 != 0 %}
+
+    <td>{{rec1.arab2}}</td>
+    {% endif %}
+    {% if  ascara3 != 0 %}
+
+    <td>{{rec1.arab3}} </td>
+    {% endif %}
+    {% if  ascfra1 != 0 %}
+      
+    <td>{{rec1.francais1}} </td>
+    {% endif %}
+  {% if  ascfra2 != 0 %}
+  
+    <td>{{rec1.francais2}} </td>
+    {% endif %}
+    {% if  ascfra3 != 0 %}
+    
+    <td>{{rec1.francais3}} </td>
+    {% endif %}
+    {% if  asceng != 0 %}
+    
+    <td>{{rec1.eng}} </td>
+    {% endif %}
+    {% if  ascphi != 0 %}
+    
+    <td>{{rec1.philosophie}} </td>
+    {% endif %}
+    {% if  asceco != 0 %}
+    
+    <td>{{rec1.economie}} </td>
+    {% endif %}
+    {% if  ascsoc != 0 %}
+  
+    <td>{{rec1.socialite}} </td>
+    {% endif %}
+    {% if  aschis != 0 %}
+    
+    <td>{{rec1.historique}} </td>
+    {% endif %}
+    {% if  ascgeo != 0 %}
+    
+    <td>{{rec1.geographie}} </td>
+    {% endif %}
+    {% if  ascciv != 0 %}
+    
+    <td>{{rec1.civisme}} </td>
+    {% endif %}
+    {% if  ascart != 0 %}
+    
+    <td>{{rec1.art}} </td>
+    {% endif %}
+    {% if  ascrel != 0 %}
+    
+    <td>{{rec1.religieu}} </td>
+    {% endif %}
+    {% if  ascinf != 0 %}
+    
+    <td>{{rec1.informatique}} </td>
+    {% endif %}
+
+    {% if  ascspo != 0 %}
+    
+    <td>{{rec1.sport}} </td>
+    {% endif %}
+
+    <td> {{rec1.som1}} </td>
+    <td> {{rec1.som2}} </td>
+    {% if rec1.som2 >= 10 %}
+     <td> ناجح</td>
+     {% endif %}
+     {% if rec1.som2 < 10 %}
+     <td> راسب</td>
+     {% endif %}
+
+    
+    
+    {% endif %}
+    {% if rec1.mois == "moysem" or rec1.mois == "moyexa" or rec1.mois == "myt" %}
+    {% if movs == "yes" %}
+    <td style="background-color:yellow";>{{rec1.mois}}</td>
+    {% if ascmat != 0 %}
+    <td>{{rec1.math}} </td>
+    {% endif %}
+    {% if  ascphy != 0 %}
+  
+    <td>{{rec1.physique}}</td>
+    {% endif %}
+    {% if  ascchi != 0 %}
+  
+    <td>{{rec1.chimie}} </td>
+    {% endif %}
+    {% if  ascbio != 0 %}
+  
+    <td>{{rec1.bio}}</td>
+    {% endif %}
+    {% if  ascara1 != 0 %}
+  
+    <td>{{rec1.arab1}}</td>
+    {% endif %}
+    {% if  ascara2 != 0 %}
+
+    <td>{{rec1.arab2}}</td>
+    {% endif %}
+    {% if  ascara3 != 0 %}
+
+    <td>{{rec1.arab3}} </td>
+    {% endif %}
+    {% if  ascfra1 != 0 %}
+      
+    <td>{{rec1.francais1}} </td>
+    {% endif %}
+  {% if  ascfra2 != 0 %}
+  
+    <td>{{rec1.francais2}} </td>
+    {% endif %}
+    {% if  ascfra3 != 0 %}
+    
+    <td>{{rec1.francais3}} </td>
+    {% endif %}
+    {% if  ascphi != 0 %}
+    
+    <td>{{rec1.philosophie}} </td>
+    {% endif %}
+    {% if  asceco != 0 %}
+    
+    <td>{{rec1.economie}} </td>
+    {% endif %}
+    {% if  ascsoc != 0 %}
+  
+    <td>{{rec1.socialite}} </td>
+    {% endif %}
+    {% if  aschis != 0 %}
+    
+    <td>{{rec1.historique}} </td>
+    {% endif %}
+    {% if  ascgeo != 0 %}
+    
+    <td>{{rec1.geographie}} </td>
+    {% endif %}
+    {% if  ascciv != 0 %}
+    
+    <td>{{rec1.civisme}} </td>
+    {% endif %}
+    {% if  ascart != 0 %}
+    
+    <td>{{rec1.art}} </td>
+    {% endif %}
+    {% if  ascrel != 0 %}
+    
+    <td>{{rec1.religieu}} </td>
+    {% endif %}
+    {% if  ascinf != 0 %}
+    
+    <td>{{rec1.informatique}} </td>
+    {% endif %}
+
+    {% if  ascspo != 0 %}
+    
+    <td>{{rec1.sport}} </td>
+    {% endif %}
+
+    <td> {{rec1.som1}} </td>
+    <td> {{rec1.som2}} </td>
+    {% if rec1.som2 >= 10 %}
+     <td> ناجح</td>
+     {% endif %}
+     {% if rec1.som2 < 10 %}
+     <td> راسب</td>
+     {% endif %}
+     {% endif %}
+     {% endif %}
+    </div>    
+ 
+   </tr>
+    </form>
+      {% endfor %}
+    </table>
+
+<br>
+<br>
+<p>  </p>
+<div class='editLink'>
+
+
+<br>
+
+<button class="no" onclick="window.print()"> طباعة  pdf </button>
+<br>
+
+<a  class= "no" href="/" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a>
+</div>
+{% endblock work2 %}
+
+
+
+</body>
+</html>  
+  

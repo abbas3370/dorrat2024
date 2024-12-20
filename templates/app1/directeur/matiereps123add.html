@@ -1,0 +1,113 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+{% extends 'base01.html' %}
+{% block work2 %}
+
+<form   method="POST">
+  {% csrf_token  %}
+ 
+  <p>محموعة جديدة</p>
+  
+  <label> العام     <select type="text" name="anne1" > 
+      <option value={{xan1}}>{{xan1}}</option>
+      {% for inan in tantan  %}
+      
+      <option value={{inan.anne}}>{{inan.anne}}</option>
+       {% endfor %}
+      </select> </label>
+  <br><p>الصف     <select type="text" name="classe1"> 
+    <option value={{xc}}>{{xc}}</option>
+    <option value="ps1">ps1</option>
+    <option value="ps2">ps2</option>
+    <option value="ps3">ps3</option>
+     
+    </select>
+<label> المجموعة:
+  <select type="text" name="groupe1"> 
+    <option value="اللغة العربية">اللغة العربية</option>
+    <option value="La langue francaise">La langue francaise</option>
+    <option value="Mathematique">Mathematique</option>
+    <option value="Activites">Activites</option>   
+    <option value="Other">Other</option>
+  </select>
+  </label>
+  
+  <label> المجال:
+    <select type="text" name="champ1"> 
+      <option value="المجال اللغوي">المجال اللغوي</option>
+      <option value="المجال الحسي الحركي">المجال الحسي الحركي</option>
+      <option value="المجال العلمي">المجال العلمي</option>
+      <option value="المجال الاجتماعي">المجال الاجتماعي</option>   
+      <option value="المجال الفني">المجال الفني</option>
+      <option value="غيره">غيره</option>
+      <option value="Developpement langagier">Developpement langagier</option>
+      <option value="Developpement scientifique">Developpement scientifique</option>
+      <option value="Developpement psychomoteur">Developpement psychomoteur</option>
+      <option value="Developpement artistique">Developpement artistique</option>
+      <option value="Developpement social">Developpement social</option>
+      <option value="Other">Other</option>
+    
+    </select>
+    
+    </label>
+    </label>
+  <label> الهدف: 
+  <input type="text" name="souschamp1" required="True" ></label>
+  <label>ملاحظة1:
+  <input type="text" name="rem11"  required="True" ></label>
+  
+  <label>     ملاحظة2:
+   <input type="text" name="rem21" required="True"></label>
+   
+
+  
+      <label>       ملاحظة3:
+  <input type="text" name="rem31" required="True" ></label>
+  <label> رقم 1:
+ <input type="text" name="num11" required="True" ></label>
+ <label> رقم 2:
+  <input type="text" name="num21" required="True" ></label>
+    
+  
+
+  <input type="submit" value="save"  ></p>
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/eleveps/listmatiereps123" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+ <td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+{% endblock work2 %}
+  
+
+</body>
+</html>

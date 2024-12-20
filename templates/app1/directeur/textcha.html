@@ -1,0 +1,282 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+
+    table ,td{
+       border:1px solid  black;
+       border-collapse: collapse;
+    }
+
+    
+  @media print { 
+    .nonprint{
+               display:none;
+  }
+  .no{
+    display:none;
+  }
+  .pgbr{
+    clear: both;
+    page-break-after: always;
+  }
+  }
+
+ input {
+ 
+  border: none;
+  outline:none;
+ }
+
+
+ .qq{
+  margin-top: 1px;
+  background-color: rgb(194, 211, 170);    
+  text-align: right;
+  margin-right: 2px;
+  width: 40%;
+  height: 100px;
+  float:left;
+  
+ }
+ .qq1{
+  margin-top: 1px;
+  background-color: rgb(194, 211, 170);    
+  text-align: right;
+  margin-right: 2px;
+  width: 49%;
+  height: 100px;
+
+  float:right;
+ }
+
+
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+  
+
+{% extends 'base01.html' %}
+{% block work2 %}
+{% for sco in scho %}
+
+<table border="1">
+  <td> <a>&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp</a>
+    <a>{{sco.name}}</a> <a>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+  </td>
+  <td> <a>&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp</a>
+    <a>افادة مدرسية</a> <a>&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp</a>
+  </td>
+  <td> <a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+    <a><img src="/static/image/logo1.jpg" alt="c:\pictures\logo1.jpg"  style=" border:0px  solid #4d694e"  width="100" height="50"></a> <a>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+  </td>
+</table>
+<br>
+<div  class="qq1" >
+  <table border="1">
+    <td>رقم المدرسة:</td> <td><a>&nbsp  &nbsp</a><a> &nbsp</a><a>&nbsp &nbsp &nbsp</a>{{sco.numeducation}}<a>&nbsp &nbsp &nbsp <a>&nbsp &nbsp &nbsp</a></a></td><tr>    <td>رقم التلميذ على اللائحة:</td><td align="center"><a>&nbsp &nbsp&nbsp &nbsp &nbsp</a><a><input type="text" name="nu" align="center" size="5"></a></td><tr>   <td>رقم اللائحة:</td><td><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a>2840<a>&nbsp &nbsp &nbsp</a></td><tr>    <td>رقم المدرسة في مركز البحوث والانماء:</td><td><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a>{{sco.numeducation}}<a>&nbsp &nbsp &nbsp</a></td>
+    </table>   
+</div>
+<div  class="qq" >
+<table border="1">
+  <td>المحافظة:<a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a></td><td><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.mohafaza}}&nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a></td><tr>
+  <td>القضاء:<a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a></td><td><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.kadaa}}&nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a></td><tr>
+  <td>البلدة:<a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a></td><td><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.city}}&nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a><a>&nbsp &nbsp &nbsp</a></td><tr>
+  </table>
+</div>
+<br>
+
+
+
+
+<br><br><br><br><br>
+<a>تفيد ادارة   </a><a>&nbsp &nbsp &nbsp</a><a>&nbsp{{sco.name}}&nbsp</a><a>أن التلميذ </a>
+<a>&nbsp{{w3}}&nbsp{{w2}}&nbsp{{w1}}&nbsp</a><br><br>
+<a>المولود بتاريخ   </a>&nbsp{{nais|date:"d-m-Y"}}&nbsp<a>&nbsp&nbsp</a><a>({{tyst}})</a>&nbsp&nbsp&nbsp<a>جنسيته </a><a>&nbsp &nbsp</a><a><input type="text" name="sex" size="5"></a><br><br>
+<a>قد تسحل في الصف </a><a>&nbsp &nbsp &nbsp</a>
+{% if c6 == "ps1" %}
+<td  width="282" height="15">روضة أولى</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>روضة</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "ps2" %}
+<td  width="282" height="15">روضة ثانية</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>روضة</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "ps3" %}
+<td  width="282" height="15">روضة ثالثة</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>روضة</a><a>&nbsp</a></td>
+{% endif %}
+
+{% if c6 == "eb1" %}
+<td  width="282" height="15">ألأول</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "eb2" %}
+<td  width="282" height="15">الثاني</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb3" %}
+<td  width="282" height="15">الثالث</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة (6)</a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb4" %}
+<td  width="282" height="15">الرابع</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb5" %}
+<td  width="282" height="15">الخامس</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb6" %}
+<td  width="282" height="15">السادس</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ابتدائي</a><a>&nbsp</a></td>
+
+{% endif %}
+
+{% if c6 == "eb7" %}
+<td  width="282" height="15">السابع</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>متوسط</a><a>&nbsp</a></td>
+
+{% endif %}
+{% if c6 == "eb8" %}
+<td  width="282" height="15">الثامن</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>متوسط</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "eb9" %}
+<td  width="282" height="15">التاسع</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>متوسط</a><a>&nbsp</a></td>
+{% endif %}
+
+{% if c6 == "sec-sc" %}
+<td  width="282" height="15">الاول ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "bacc1-sc" %}
+<td  width="282" height="15">الثاني ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "bacc1-l" %}
+<td  width="282" height="15">الثاني ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "sg" %}
+<td  width="282" height="15">الثالث ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "sv" %}
+<td  width="282" height="15">الثالث ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "se" %}
+<td  width="282" height="15">الثالث ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}
+{% if c6 == "lh" %}
+<td  width="282" height="15">الثالث ثانوي</td><a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<td width="282" height="15"><a>&nbsp</a><a>المرحلة </a><a>&nbsp</a><a>&nbsp</a><a>ثانوي</a><a>&nbsp</a></td>
+{% endif %}<br><br>
+<a> للعام</a>
+</a><a>&nbsp{{w6}}&nbsp</a><a>(</a>{{a1cx1}}<a></a>-{{a1cx2}}<a>)</a>
+<a>تحت الرقم: </a><input type="text" name="num00898" size="3"><a>&nbsp&nbsp&nbspبتاريخ &nbsp&nbsp</a><a><input type="date" name="dat00898" placeholder="DD-MM-YYYY" ></a><br><br>
+<a>وهو لا يزال يتابع دراسته حتى تاريخه .</a><a>وأن القسط السنوي المطلوب هو </a><a>&nbsp {{ll6}} ل.ل.&nbsp</a><a>({{tafl1}}</a><a>&nbspليرة لبنانية)</a>
+<br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a>+&nbsp {{dd6}} $$ &nbsp</a><a>({{tafd1}}</a><a>&nbspدولار أميريكي)</a><br><br>
+<a>وبيانا للواقع اعطيت هذه الافادة</a>
+<br><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>{{sco.city}}<a>&nbsp &nbsp&nbsp&nbsp في:  <a><input type="date" name="dat0w32" ></a><br><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>اسم مدير المدرسة: </a>&nbsp&nbsp&nbsp<a>{{sco.directeur}}</a><br><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>توقيع مدير المدرسة:</a><br><br>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp &nbsp</a>
+<a>خاتم المدرسة:</a>
+<br><br><br><br>
+<a>________________________________________________________________________________________</a>
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+  <div class="no">
+    <button  onclick="window.print()"> طباعة  pdf </button>
+    <td><a href="/app1/eleves001/ifadah" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+    </div>
+    
+
+{% endblock work2 %}
+  
+
+</body>
+</html>

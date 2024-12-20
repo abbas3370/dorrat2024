@@ -1,0 +1,121 @@
+<html dir="rtl",lang="en">
+  
+  <style>
+    .editLink a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }  
+  </style>
+   
+<script type="text/javascript">
+  function preventBack() {
+      window.history.forward(); 
+  }
+  
+  setTimeout("preventBack()", 0);
+  
+  window.onunload = function () { null };
+</script>
+
+</head>
+
+<body>
+
+  {% extends 'base01.html' %}
+  {%load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block work2 %}
+
+<script>
+  function myFunction() {
+    alert("Hello! I am an alert box!");
+  }
+  </script>
+  
+<form  method="POST">
+  {% csrf_token  %}
+ <table>
+  {% for menber in menber11 %}
+  <p>معلومات المدرسة </p>
+  
+  <p> اسم المدرسة:
+  <input type="text" name="name1"  value="{{menber.name}}"></p>
+
+
+  
+  <p>رقم المركز التربوي
+  <input type="text" name="numeducation1" required="True" value="{{menber.numeducation}}"></p>
+
+
+    <p> اسم المدير
+  <input type="text" name="directeur1"  required="True" value="{{menber.directeur}}"></p>
+
+  
+  <p> تصنيف المدرسة
+  <input type="text" name="tasnif1" required="True" value="{{menber.tasnif}}"></p>
+  
+
+ <p>فاكس
+  <input type="text" name="fax1"  required="True" value="{{menber.fax}}"></p>
+
+  
+  <p>تلفون:
+  <input type="text" name="tel1" required="True"  value="{{menber.tel}}"></p>
+
+  
+
+  <p>رقم الترخيص:
+ <input type="text" name="tarhis1" required="True" value="{{menber.tarhis}}"></p>
+
+
+ <p> المحافظة:
+  <input type="text" name="mohafaza1" required="True" value="{{menber.mohafaza}}" ></p>
+  <p> القضاء:
+    <input type="text" name="kadaa1" required="True" value="{{menber.kadaa}}" ></p>
+
+
+
+    <p> البلدة:
+      <input type="text" name="city1" required="True" value="{{menber.city}}"></p>
+          
+   <p> تاريخ ترخيص المدرسة:
+<input type="text" name="rem11" required="True" value="{{menber.rem1}}"></p>
+   
+<p> ملاحظة 2:
+  <input type="text" name="rem21" required="True" value="{{menber.rem2}}"></p>
+     
+<p> رقم1 
+ <input type="number" name="num11" required="True" value="{{menber.num1}}"></p>
+     <p> رقم 2
+ <input type="number" name="num21" required="True" value="{{menber.num2}}" ></p>
+                             
+ <p> شعار المدرسة<input type="file" name="image1"  value="{{menber.imag}}" ></p>
+                              
+ 
+  
+ </table>
+ 
+
+<p>  <input type="submit" value="save" ></p>
+{% endfor %}
+  <br>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class='editLink'>
+
+  <td><a href="/app1/direct" style="background-color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج دون تسجيل</a></td>
+  
+  <br>
+<br>
+
+<td><a href="/app1/direct" style="background-color: blue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">خروج الى اللائحة الاساسية</a></td>
+  </div>
+  
+{% endblock work2 %}
+
+
+</body>
+</html> 
