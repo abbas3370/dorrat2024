@@ -2733,3 +2733,5 @@ def updatelistenews(request, cod):
  return HttpResponseRedirect(reverse('form10033news'))
 
 #########################################################################
+
+#  fait pa abbas kanjou
